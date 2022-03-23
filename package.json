@@ -19,5 +19,14 @@
     "handlebars": "^4.7.7",
     "mysql2": "^2.3.3",
     "sequelize": "^6.17.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Capricious150/Storage-Company-CRM.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Capricious150/Storage-Company-CRM/issues"
+  },
+  "homepage": "https://github.com/Capricious150/Storage-Company-CRM#readme"
 }

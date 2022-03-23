@@ -9,7 +9,7 @@ Customers.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
-            autoIncrement: true
+            autoIncrement: true,
         },
         current_customer: {
             type: DataTypes.BOOLEAN,
@@ -17,7 +17,7 @@ Customers.init(
         },
         good_standing: {
             type: DataTypes.BOOLEAN,
-            allowNull: false
+            allowNull: false,
         },
         current_balance: {
             type: DataTypes.DECIMAL(10, 2),
@@ -26,25 +26,36 @@ Customers.init(
         },
         insured: {
             type: DataTypes.BOOLEAN,
-            allowNull: false
+            allowNull: false,
         },
         insurance_type: {
             type: DataTypes.TEXT,
-            allowNull: false
+            allowNull: false,
         },
-        service_start: {
+        customer_since: {
             type: DataTypes.DATE,
-            allowNull: false
+            allowNull: false,
         },
-        service_end: {
-            type: DataTypes.DATE,
-            allowNull: false
+        units_owned: {
+            type: DataTypes.ARRAY,
+            references: {
+                model: 'Units',
+                key: 'id',
+            },
+        },
+        employee_ref: {
+            type: Datatypes.INTEGER,
+            references: {
+                model: 'employees',
+                key: 'id',
+                unique: false,
+            },
         },
     },
     {
         sequelize,
-        timestamps: true
-    }
+        timestamps: true,
+    },
 );
 
 module.exports = Customers;

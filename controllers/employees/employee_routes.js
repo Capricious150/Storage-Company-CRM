@@ -2,15 +2,13 @@ const router = require('express').Router();
 const Employee = require('../../models');
 
 router.get('/', async (req, res) => {
-    router.get('/', async (req, res) => {
         try {
             const employeeData = await Employee.findAll()
             res.status(200).json(employeeData);
         } catch (err) {
             res.status(400).json(err);
         }
-    })
-});
+    });
 
 router.get('/:id', async (req, res) => {
         try {

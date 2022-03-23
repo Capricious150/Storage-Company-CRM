@@ -1,0 +1,14 @@
+[
+    {
+        "first_name": "John",
+        "last_name": "Doe",
+        "current_customer": true,
+        "good_standing": true,
+        "current_ballance": 350.00,
+        "insured": true,
+        "insurance_type": "Allstate Storage Plus",
+        "customer_since": "2022-03-23 14:30:00",
+        "units_owned": "2,4,7",
+        "employee_ref": 
+    },
+]

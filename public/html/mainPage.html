@@ -24,35 +24,152 @@
         border: 2px solid blue;
       "
     >
-      <li class="nav-item topLink">
+      <li class="nav-item">
         <button type="button" class="btn btn-outline-primary">Customers</button>
       </li>
-      <li class="nav-item topLink">
+      <li class="nav-item">
         <button type="button" class="btn btn-outline-primary">Issues</button>
       </li>
-      <li class="nav-item topLink">
+      <li class="nav-item">
         <button type="button" class="btn btn-outline-primary">Units</button>
       </li>
       <li>Time goes here</li>
 
-      <li class="nav-item topLink">
+      <li class="nav-item">
         <button type="button" class="btn btn-outline-danger">Logout</button>
       </li>
     </ul>
   </nav>
 
   <body>
-      <div class="container-fluid no padding" style="display: flex; flex-direction: row;">
     <div
-      class="sidebar" style="height: 100vh; width: 75vw; border: 2px solid blue; margin: 1px; background-color: lightblue;">
-      <h2 class="title" style="display: flex; justify-content: center; color: blue;
-          text-decoration: underline;">TO DO</h2>
-      <ul>
-        <li></li>
+      
+      style="display: flex; flex-direction: row"
+    >
+      <div
+        class="sidebar"
+        style="
+          height: 90vh;
+          width: 75vw;
+          border: 2px solid blue;
+          background-color: lightblue;
+        "
+      >
+        <h2
+          class="title"
+          style="
+            display: flex;
+            justify-content: center;
+            color: blue;
+            text-decoration: underline;
+            padding-top: 25px;
+          "
+        >
+          TO DO
+        </h2>
+        <ul>
+          <li></li>
+        </ul>
+      </div>
+      <div
+        class="mainWindow"
+        style="
+           height: 90vh;
+          width: 100vw;
+          border: 2px solid blue;
+          background-color: lightblue;
+        "
+      >
+        <div
+          class="topBox"
+          style="
+            height: 150px;
+            border: 2px solid blue;
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          Unit info goes here
+        </div>
 
-      </ul>
-    </div>
-    <div class="mainWindow" style="height: 100vh; width: 100vw; border: 2px solid blue;margin: 1px; background-color: lightblue;"></div>
+        <ul
+          class="nav unitButton"
+          style="display: flex; justify-content: space-evenly; margin: 50px;"
+        >
+          <li class="nav-item">
+            <button type="button" class="btn btn-outline-primary">
+              Assign Unit
+            </button>
+          </li>
+          <li class="nav-item">
+            <button type="button" class="btn btn-outline-primary">
+              Remove Unit
+            </button>
+          </li>
+        </ul>
+        <div class="unitBox" style="border: 2px solid blue; margin: 20px; display: flex; justify-content: space-evenly;">
+          <div class="columnOne">
+            <div class="map" style="height: 40px; width: 60px; border: 2px solid black; margin: 20px;"></div>
+            <div class="map" style="height: 40px; width: 60px; border: 2px solid black; margin: 20px;"></div>
+            <div class="map" style="height: 40px; width: 60px; border: 2px solid black; margin: 20px;"></div>
+            <div class="map" style="height: 40px; width: 60px; border: 2px solid black; margin: 20px;"></div>
+            <div class="map" style="height: 40px; width: 60px; border: 2px solid black; margin: 20px;"></div>
+            <div class="map" style="height: 40px; width: 60px; border: 2px solid black; margin: 20px;"></div>
+          </div>
+
+          <div class="columnTwo">
+            <div class="map" style="height: 40px; width: 60px; border: 2px solid black; margin: 20px;"></div>
+            <div class="map" style="height: 40px; width: 60px; border: 2px solid black; margin: 20px;"></div>
+            <div class="map" style="height: 40px; width: 60px; border: 2px solid black; margin: 20px;"></div>
+            <div class="map" style="height: 40px; width: 60px; border: 2px solid black; margin: 20px;"></div>
+            <div class="map" style="height: 40px; width: 60px; border: 2px solid black; margin: 20px;"></div>
+            <div class="map" style="height: 40px; width: 60px; border: 2px solid black; margin: 20px;"></div>
+          </div>
+
+          <div class="columnThree">
+            <div class="map" style="height: 40px; width: 60px; border: 2px solid black; margin: 20px;"></div>
+            <div class="map" style="height: 40px; width: 60px; border: 2px solid black; margin: 20px;"></div>
+            <div class="map" style="height: 40px; width: 60px; border: 2px solid black; margin: 20px;"></div>
+            <div class="map" style="height: 40px; width: 60px; border: 2px solid black; margin: 20px;"></div>
+            <div class="map" style="height: 40px; width: 60px; border: 2px solid black; margin: 20px;"></div>
+            <div class="map" style="height: 40px; width: 60px; border: 2px solid black; margin: 20px;"></div>
+          </div>
+          <div class="columnFour">
+            <div class="map" style="height: 40px; width: 60px; border: 2px solid black; margin: 20px;"></div>
+            <div class="map" style="height: 40px; width: 60px; border: 2px solid black; margin: 20px;"></div>
+            <div class="map" style="height: 40px; width: 60px; border: 2px solid black; margin: 20px;"></div>
+            <div class="map" style="height: 40px; width: 60px; border: 2px solid black; margin: 20px;"></div>
+            <div class="map" style="height: 40px; width: 60px; border: 2px solid black; margin: 20px;"></div>
+            <div class="map" style="height: 40px; width: 60px; border: 2px solid black; margin: 20px;"></div>
+          </div>
+          <div class="columnFive">
+            <div class="map" style="height: 40px; width: 60px; border: 2px solid black; margin: 20px;"></div>
+            <div class="map" style="height: 40px; width: 60px; border: 2px solid black; margin: 20px;"></div>
+            <div class="map" style="height: 40px; width: 60px; border: 2px solid black; margin: 20px;"></div>
+            <div class="map" style="height: 40px; width: 60px; border: 2px solid black; margin: 20px;"></div>
+            <div class="map" style="height: 40px; width: 60px; border: 2px solid black; margin: 20px;"></div>
+            <div class="map" style="height: 40px; width: 60px; border: 2px solid black; margin: 20px;"></div>
+          </div>
+
+
+
+
+
+
+          
+
+
+
+
+        
+        
+        </div>
+
+
+
+      </div>
     </div>
 
     <script

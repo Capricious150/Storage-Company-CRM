@@ -29,7 +29,7 @@ Units.init (
             type: DataTypes.BOOLEAN,
             allowNull: false,
         },
-        customer: {
+        customer_id: {
             type: DataTypes.INTERGER,
             references: {
                 model: 'Customers',

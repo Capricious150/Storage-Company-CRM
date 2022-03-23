@@ -18,10 +18,12 @@ Employees.init (
                 len: [10],
             },
         },
+        // first name and last name
         role: {
             type: DataTypes.STRING,
             allowNull: false,
         },
+        // privlages key datatype.string
         customers: {
             type: DataTypes.ARRAY,
             references: {

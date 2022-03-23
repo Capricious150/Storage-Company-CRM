@@ -3,7 +3,7 @@ const customerList = documemnt.querySelector('ul');
 const employeeList = document.querySelector('ul');
 //all customers
 function getCustomers() {
-    fetch('../models/customers')
+    fetch('http://localhost:3001/customers')
         .then( response => {
            return response.json(); 
     })
@@ -14,6 +14,7 @@ function getCustomers() {
         customerList.appendChild(listItem);
     });
 }
+
  //all customer info, recent and past issues
 function getCustomerById() {
     fetch('../')

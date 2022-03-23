@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const { Employees } = require('./Employees');
 
 class Customers extends Model {}
 
@@ -37,7 +38,7 @@ Customers.init(
             allowNull: false,
         },
         insurance_type: {
-            type: DataTypes.TEXT(300),
+            type: DataTypes.TEXT,
             allowNull: false,
         },
         customer_since: {
@@ -47,18 +48,18 @@ Customers.init(
         units_owned: {
             type: DataTypes.TEXT,
         },
-        employee_ref: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'employees',
-                key: 'id',
-                unique: false,
-            },
-        },
+        // employee_id: {
+        //     type: DataTypes.INTEGER,
+        //     references: {
+        //         model: 'employees',
+        //         key: 'id',
+        //     },
+        // },
     },
     {
         sequelize,
         timestamps: true,
+        modelName: 'customers',
     },
 );
 

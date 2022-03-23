@@ -8,7 +8,71 @@ router.get('/', async (req, res) => {
     } catch (err) {
         res.status(400).json(err)
     }
-})
+});
+
+router.get('/:id', async (req, res) => {
+    try {
+        const soleStorageUnit = await Storage.findByPk(
+            {
+                where:
+                {
+                    id: req.params.id
+                }
+            }
+        )
+        if (!soleStorageUnit){
+            res.status(500).json({message: "No Storage Unit with that ID found!"});
+            return
+        }
+        res.status(200).json(soleStorageUnit);
+    } catch (err) {
+        res.status(400).json(err);
+    }
+});
+
+router.post('/', async (req, res) => {
+    try {
+        const newStorageUnit = await Storage.create(req.body)
+        res.status(200).json(newStorageUnit);
+    } catch (err) {
+        res.status(400).json(err);
+    }
+});
+
+router.put('/:id', async (req, res) =>{
+    try {
+        const updatedStorageUnit = await Storage.update(req.body, {
+            where: {
+                id: req.params.id
+            }
+        })
+        if(!updatedStorageUnit) {
+            res.status(500).json({message: "No Storage Unit with that ID found!"})
+            return
+        }
+        res.status(200).json(updatedStorageUnit);
+    } catch (err) {
+        res.status(400).json(err)
+    }
+});
+
+router.delete('/:id', async (req, res) => {
+    try {
+        const deletedStorageUnit = Storage.destroy({
+            where:
+            {
+                id: req.params.id
+            }
+        })
+        if(!deletedStorageUnit){
+            res.status(500).json({message: "No Storage Unit with that ID found!"})
+            return
+        }
+        res.status(200).json({message: "Storage Unit removed!"})
+    } catch (err) {
+        res.status(400).json(err)
+    }
+});
 
 
 

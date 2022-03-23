@@ -1,29 +1,52 @@
 const customer_button = document.getElementById('customer-button');
-const ul = document.getElementById('customers');
-//list of customers
+const customerList = documemnt.querySelector('ul');
+//all customers
 function getCustomers() {
-    const customerURL = "http://localhost:3001/customers"
-    fetch(customerURL)
-    .then((response) => {
-      return response.json();
+    fetch('../models/customers')
+        .then( response => {
+           return response.json(); 
     })
+ 
     .then((data) => {
-      let customers = data;
-
-      customers.map(function(customer) {
-        let li = document.createElement('li');
-
-        li.appendChild(customer);
-        list.appendChild(li);
-      });
-    })
-    };
-
-  ul.appendChild(list);
-   
+        for (var i = 0; i < data.length; i++)
+        var listItem = document.createElement('li');
+        listItem.textContent = data[i].html_url;
+        repoList.appendChild(listItem);
+      }
+    });
 }
 
-function getEmployee
+ul.appendChild(list);
+   
+};
+ //all customer info, recent and past issues
+function getCustomerById() {
 
-customer_button.addEventListener("click", getCustomers);
+}
 
+//all employees
+function getEmployee(){
+    fetch('../models/employees')
+    .then (response => {
+
+    })
+}
+
+//indivual employees
+function getEmployeeById() {
+
+}
+
+//
+function getOpenIssues(){
+
+}
+
+function getClosedIssues(){
+
+}
+
+
+function getUnits() {
+
+}

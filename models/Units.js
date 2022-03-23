@@ -6,7 +6,7 @@ class Units extends Model {}
 Units.init (
     {
         id: {
-            type: DataTypes.INTERGER,
+            type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
         },
@@ -34,7 +34,6 @@ Units.init (
             references: {
                 model: 'Customers',
                 key: 'id',
-                unique: false,
             },
         },
     },

@@ -19,24 +19,36 @@ Employees.init (
             },
         },
         // first name and last name
+        first_name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            Validate: {
+                isAlphanumeric: true,
+            }
+        },
+        last_name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            Validate: {
+                isAlphanumeric: true,
+            }
+        },
         role: {
             type: DataTypes.STRING,
             allowNull: false,
         },
         // privlages key datatype.string
+        privlages: {
+            type: DataTypes.TEXT,
+        },
         customers: {
-            type: DataTypes.ARRAY,
-            references: {
-                model: 'Customers',
-                key: 'id',
-            },
+            type: DataTypes.TEXT,
         },
         manager_id: {
-            type: DataTypes.INTERGER,
+            type: DataTypes.INTEGER,
             references: {
                 model: 'Employees',
                 key: 'id',
-                unique: true
             },
         },
     },

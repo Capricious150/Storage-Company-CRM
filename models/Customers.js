@@ -11,6 +11,14 @@ Customers.init(
             primaryKey: true,
             autoIncrement: true,
         },
+        first_name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        last_name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         current_customer: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
@@ -29,7 +37,7 @@ Customers.init(
             allowNull: false,
         },
         insurance_type: {
-            type: DataTypes.TEXT,
+            type: DataTypes.TEXT(300),
             allowNull: false,
         },
         customer_since: {
@@ -37,11 +45,7 @@ Customers.init(
             allowNull: false,
         },
         units_owned: {
-            type: DataTypes.ARRAY,
-            references: {
-                model: 'Units',
-                key: 'id',
-            },
+            type: DataTypes.TEXT,
         },
         employee_ref: {
             type: Datatypes.INTEGER,

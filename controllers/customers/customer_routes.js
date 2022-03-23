@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const Customer = require('../../models');
 
-router.get('/', async (res, req) => {
+router.get('/', async (req, res) => {
     try {
         const customerData = await Customer.findAll()
         res.status(200).json(customerData);
@@ -10,7 +10,7 @@ router.get('/', async (res, req) => {
     }
 })
 
-router.get('/:id', async (res, req) => {
+router.get('/:id', async (req, res) => {
     try {
         const soleCustomerData = await Customer.findByPk(req.params.id)
         if (!soleCustomerData){
@@ -23,7 +23,7 @@ router.get('/:id', async (res, req) => {
     }
 });
 
-router.post('/', async (res, req) => {
+router.post('/', async (req, res) => {
     try {
         const newCustomer = await Customer.create(req.body)
         res.status(200).json(newCustomer)
@@ -32,7 +32,7 @@ router.post('/', async (res, req) => {
     }
 });
 
-router.put('/:id', async (res, req) => {
+router.put('/:id', async (req, res) => {
     try {
         const updatedCustomer = await Customer.update(req.body,
             {

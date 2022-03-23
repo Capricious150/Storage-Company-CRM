@@ -16,14 +16,14 @@ function getCustomers() {
         li.appendChild(customer);
         list.appendChild(li);
       });
-    }).
-    .catch(function(error) {
-      console.log(error);
-    });
+    })
+    };
 
   ul.appendChild(list);
    
 }
+
+function getEmployee
 
 customer_button.addEventListener("click", getCustomers);
 

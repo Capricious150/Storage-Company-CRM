@@ -23,4 +23,12 @@ router.get('/:id', async (res, req) => {
     }
 });
 
+router.post('/', async (res, req) => {
+    try {
+        const newCustomer = await Customer.create(req.body)
+        res.status(200).json(newCustomer)
+    } catch (err) {
+        res.status(400).json(err)
+    }
+})
 module.exports = router;

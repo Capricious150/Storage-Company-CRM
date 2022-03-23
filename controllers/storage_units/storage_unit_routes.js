@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const Storage = require('../../models');
+const { Units } = require('../../models');
 
 router.get('/', async (req, res) => {
     try {
-        const storageUnits = await Storage.findAll();
+        const storageUnits = await Units.findAll();
         res.status(200).json(storageUnits);
     } catch (err) {
         res.status(400).json(err)
@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        const soleStorageUnit = await Storage.findByPk(
+        const soleStorageUnit = await Units.findByPk(
             {
                 where:
                 {
@@ -32,7 +32,7 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-        const newStorageUnit = await Storage.create(req.body)
+        const newStorageUnit = await Units.create(req.body)
         res.status(200).json(newStorageUnit);
     } catch (err) {
         res.status(400).json(err);
@@ -41,7 +41,7 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) =>{
     try {
-        const updatedStorageUnit = await Storage.update(req.body, {
+        const updatedStorageUnit = await Units.update(req.body, {
             where: {
                 id: req.params.id
             }
@@ -58,7 +58,7 @@ router.put('/:id', async (req, res) =>{
 
 router.delete('/:id', async (req, res) => {
     try {
-        const deletedStorageUnit = Storage.destroy({
+        const deletedStorageUnit = Units.destroy({
             where:
             {
                 id: req.params.id

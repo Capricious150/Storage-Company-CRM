@@ -30,7 +30,7 @@ Units.init (
             allowNull: false,
         },
         customer_id: {
-            type: DataTypes.INTERGER,
+            type: DataTypes.INTEGER,
             references: {
                 model: 'Customers',
                 key: 'id',

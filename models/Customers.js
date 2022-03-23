@@ -48,7 +48,7 @@ Customers.init(
             type: DataTypes.TEXT,
         },
         employee_ref: {
-            type: Datatypes.INTEGER,
+            type: DataTypes.INTEGER,
             references: {
                 model: 'employees',
                 key: 'id',

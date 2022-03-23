@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const Employee = require('../../models');
+const { Employees } = require('../../models');
 
 router.get('/', async (req, res) => {
         try {
-            const employeeData = await Employee.findAll()
+            const employeeData = await Employees.findAll()
             res.status(200).json(employeeData);
         } catch (err) {
             res.status(400).json(err);
@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
         try {
-            const soleEmployeeData = await Employee.findByPk()
+            const soleEmployeeData = await Employees.findByPk()
             if (!soleEmployeeData){
                 res.status(500).json({message: "No employee with that ID found!"});
                 return
@@ -25,7 +25,7 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-        const newEmployee = await Employee.create(req.body)
+        const newEmployee = await Employees.create(req.body)
         res.status(200).json(newEmployee);
     } catch (err) {
         res.status(400).json(err);
@@ -34,7 +34,7 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
     try {
-        const updatedEmployee = await Employee.update(req.body, 
+        const updatedEmployee = await Employees.update(req.body, 
             {
                 where:
                 {
@@ -53,7 +53,7 @@ router.put('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
     try {
-        const deletedEmployee = await Employee.destroy({
+        const deletedEmployee = await Employees.destroy({
             where:
             {
                 id: req.params.id
@@ -67,3 +67,5 @@ router.delete('/:id', async (req, res) => {
         res.status(400).json(err);
     }
 });
+
+module.exports = router;

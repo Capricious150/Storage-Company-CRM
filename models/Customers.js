@@ -48,13 +48,13 @@ customers.init(
         units_owned: {
             type: DataTypes.TEXT,
         },
-        // employee_id: {
-        //     type: DataTypes.INTEGER,
-        //     references: {
-        //         model: 'employees',
-        //         key: 'id',
-        //     },
-        // },
+        employee_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'employees',
+                key: 'id',
+            },
+        },
     },
     {
         sequelize,

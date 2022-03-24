@@ -1,7 +1,8 @@
-const customer_button = document.getElementById('customer-button');
+
 const customerList = documemnt.querySelector('ul');
 const employeeList = document.querySelector('ul');
 //all customers
+
 function getCustomers() {
     fetch('http://localhost:3001/customers')
         .then( response => {
@@ -10,7 +11,7 @@ function getCustomers() {
     .then((data) => {
         for (var i = 0; i < data.length; i++)
         var listItem = document.createElement('li');
-        listItem.textContent = data[i];
+        listItem.textContent = data[i].html;
         customerList.appendChild(listItem);
     });
 }
@@ -23,7 +24,7 @@ function getCustomerById() {
            return response.json(); 
     })
     .then((data) => {
-};
+});
 
 //all employees
 function getEmployee(){
@@ -46,12 +47,3 @@ function getEmployeeById() {
 function getUnits() {
 
 }
-
-//
-// function getOpenIssues(){
-
-// }
-
-// function getClosedIssues(){
-
-// }

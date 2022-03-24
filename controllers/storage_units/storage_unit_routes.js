@@ -1,9 +1,13 @@
 const router = require('express').Router();
-const { Units } = require('../../models');
+const { Units, Customers } = require('../../models');
 
 router.get('/', async (req, res) => {
     try {
-        const storageUnits = await Units.findAll();
+        const storageUnits = await Units.findAll({
+            include: [
+                {model: Customers}
+            ]
+        });
         res.status(200).json(storageUnits);
     } catch (err) {
         res.status(400).json(err)

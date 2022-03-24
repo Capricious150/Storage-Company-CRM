@@ -4,7 +4,7 @@ const Customers = require('./Customers')
 
 
 Customers.belongsTo(Employees, {
-    foreignKey: 'employee_ref',
+    foreignKey: 'employee_id',
     onDelete: 'CASCADE',
 });
 

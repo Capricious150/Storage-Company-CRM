@@ -1,9 +1,13 @@
 const router = require('express').Router();
-const { Customers } = require('../../models');
+const { Customers, Employees } = require('../../models');
 
 router.get('/', async (req, res) => {
     try {
-        const customerData = await Customers.findAll()
+        const customerData = await Customers.findAll({
+            include: [
+                {model: Employees}
+            ]
+        })
         res.status(200).json(customerData);
     } catch (err) {
         res.status(400).json(err)
@@ -12,7 +16,11 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        const soleCustomerData = await Customers.findByPk(req.params.id)
+        const soleCustomerData = await Customers.findByPk(req.params.id,{
+            include: [
+                {model: Employees}
+            ]
+        })
         if (!soleCustomerData){
             res.status(500).json({message: "No customer with that ID found"})
             return

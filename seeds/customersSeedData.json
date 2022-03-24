@@ -8,7 +8,8 @@
         "insured": true,
         "insurance_type": "allstate storage plus",
         "customer_since": "2022-03-23 14:30:00",
-        "units_owned": "2,4,7"
+        "units_owned": "2,4,7",
+        "employee_id": "1"
     },
     {
         "first_name": "maggie",
@@ -17,6 +18,7 @@
         "good_standing": false,
         "insured": false,
         "current_balance": 3567.45,
-        "customer_since": "2022-03-13 08:46:32"
+        "customer_since": "2022-03-13 08:46:32",
+        "employee_id": "2"
     }
 ]

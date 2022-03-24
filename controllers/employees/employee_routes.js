@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
         try {
-            const soleEmployeeData = await Employees.findByPk()
+            const soleEmployeeData = await Employees.findByPk(req.params.id)
             if (!soleEmployeeData){
                 res.status(500).json({message: "No employee with that ID found!"});
                 return

@@ -10,7 +10,7 @@ const getCustomers = async () => {
     })
     console.log(response);
     if (response.ok) {
-        // document.location.replace('/customer/');
+        document.location.replace('/customer/');
       } else {
         alert('Failed.');
       }

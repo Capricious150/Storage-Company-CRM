@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome!</title>
+    <title>Customers</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
@@ -31,15 +31,18 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a id="customersButton" class="nav-link" href="#"
+          <a id="customersButton" class="nav-link" href="./customers.html"
             >Customers <span class="sr-only">(current)</span></a
           >
         </li>
         <li class="nav-item active">
-          <a id="issuesButton" class="nav-link" href="#">Issues </a>
+          <a id="issuesButton" class="nav-link" href="./issues.html">Issues </a>
         </li>
         <li class="nav-item active">
-          <a id="unitsButton" class="nav-link" href="#">Units </a>
+          <a id="unitsButton" class="nav-link" href="./units.html">Units </a>
+        </li>
+        <li class="nav-item active">
+          <a id="employeesButton" class="nav-link" href="./employee.html">Employees </a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
@@ -58,41 +61,28 @@
   <body>
     <div class="windowOne">
       <div class="border border-primary" style="width: 75vw">
-        <h2 class="title">TO DO</h2>
+        <div class="custButtons">
+          <button
+            id="viewCustomersButton"
+            type="button"
+            class="btn btn-outline-primary custButtons"
+          >
+            View Customers
+          </button>
+          <button
+            id=""
+            type="button"
+            class="btn btn-outline-primary custButtons"
+          >
+            Another button?
+          </button>
+        </div>
         <ul>
-          <li id="toDoItems"></li>
+          <!-- <li id="toDoItems"></li> -->
         </ul>
       </div>
       <div class="border border-primary" style="width: 100vw">
-        <div id="unitInfo" class="topBox">Unit info goes here</div>
-
-        <ul class="nav">
-          <li class="nav-item">
-            <button
-              id="assignUnitButton"
-              type="button"
-              class="btn btn-outline-primary"
-              style="margin: 5px"
-            >
-              Assign Unit
-            </button>
-          </li>
-          <li class="nav-item">
-            <button
-              id="removeUnitButton"
-              type="button"
-              class="btn btn-outline-primary"
-              style="margin: 5px"
-            >
-              Remove Unit
-            </button>
-          </li>
-        </ul>
-        <div class="unitMapBox">
-          <div class="columnOne">
-            <div class="map"></div>
-          </div>
-        </div>
+        <div id="unitInfo" class="topBox">Customer information goes here</div>
       </div>
     </div>
 

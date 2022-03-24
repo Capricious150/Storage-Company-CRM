@@ -1,8 +1,5 @@
 
-// const customerList = document.querySelector('ul');
-// const employeeList = document.querySelector('ul');
 const viewCustButton = document.getElementById('viewCustomersButton');
-//all customers
 
 const getCustomers = async () => {
     const response = await fetch('/customer/', {
@@ -16,35 +13,30 @@ const getCustomers = async () => {
       }
     }
 
-function getCustomerById() {
-    fetch('../models/employee')
-        .then( response => {
-           return response.json(); 
+const getCustomerById = async () => {
+    const response = await fetch('/customer/id', {
+        method: 'GET'
     })
-    .then((data) => {
-})};
+    console.log(response);
+    if (response.ok) {
+        res.redirect('/customer/id:');
+      } else {
+        alert('Failed.');
+      }
+    }
 
 //all employees
-function getEmployee(){
-    fetch('../models/employee')
-        .then( response => {
-           return response.json(); 
-    })
-    .then((data) => {
-        for (var i = 0; i < data.length; i++)
-        var listItem = document.createElement('li');
-        listItem.textContent = data[i];
-        employeeList.appendChild(listItem);
-    });
-}
+// const getEmployee = async () => {
+//     const response = await fetch('/employee/', {
+//         method: 'GET'
+//     })
+//     console.log(response);
+//     if (response.ok) {
+//       } else {
+//         alert('Failed.');
+//       }
+//     }
 
 viewCustButton.addEventListener('click', getCustomers);
 
-// indivual employees
-// function getEmployeeById() {
-
-// }
-// function getUnits() {
-
-// }
 

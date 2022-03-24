@@ -1,4 +1,27 @@
-      <div class="border border-primary" style="width: 100vw">
+
+    <div class="windowOne">
+      <div class="border border-primary" style="width: 75vw">
+        <div class="custButtons">
+          <button
+            id="viewCustomersButton"
+            type="button"
+            class="btn btn-outline-primary custButtons"
+          >
+            View Customers
+          </button>
+          <button
+            id=""
+            type="button"
+            class="btn btn-outline-primary custButtons"
+          >
+            Another button?
+          </button>
+        </div>
+        <ul>
+          <!-- <li id="toDoItems"></li> -->
+        </ul>
+      </div>
+        <div class="border border-primary" style="width: 100vw">
         <div id="unitInfo" class="topBox">Customer information goes here</div>
         <p> THIS WAS RENDERED FROM A GET</p>
         {{#each renderedCustomers as |customer|}}
@@ -6,3 +29,4 @@
         <p>{{customer.first_name}}</p>
         {{/each}}
       </div>
+    </div>

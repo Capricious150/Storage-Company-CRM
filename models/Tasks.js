@@ -7,6 +7,7 @@ tasks.init (
     {
         id: {
             type: DataTypes.INTEGER,
+            autoIncrement: true,
             allowNull: false,
             primaryKey: true
         },
@@ -17,7 +18,7 @@ tasks.init (
         employee_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'employee',
+                model: 'employees',
                 key: 'id',
             },
         },
@@ -25,6 +26,7 @@ tasks.init (
     {
         sequelize,
         timestamps: true,
+        modelName: 'tasks',
     },
 );
 

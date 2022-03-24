@@ -1,30 +1,28 @@
 
-const customerList = documemnt.querySelector('ul');
-const employeeList = document.querySelector('ul');
+// const customerList = document.querySelector('ul');
+// const employeeList = document.querySelector('ul');
+const viewCustButton = document.getElementById('viewCustomersButton');
 //all customers
 
-function getCustomers() {
-    fetch('http://localhost:3001/customers')
-        .then( response => {
-           return response.json(); 
+const getCustomers = async () => {
+    const response = await fetch('/customer/', {
+        method: 'GET'
     })
-    .then((data) => {
-        for (var i = 0; i < data.length; i++)
-        var listItem = document.createElement('li');
-        listItem.textContent = data[i].html;
-        customerList.appendChild(listItem);
-    });
-}
+    console.log(response);
+    if (response.ok) {
+        // document.location.replace('/customer/');
+      } else {
+        alert('Failed.');
+      }
+    }
 
- //all customer info, recent and past issues
- //??is manager entering cust id or clicking link
 function getCustomerById() {
     fetch('../models/employee')
         .then( response => {
            return response.json(); 
     })
     .then((data) => {
-});
+})};
 
 //all employees
 function getEmployee(){
@@ -40,10 +38,13 @@ function getEmployee(){
     });
 }
 
-//indivual employees
-function getEmployeeById() {
+viewCustButton.addEventListener('click', getCustomers);
 
-}
-function getUnits() {
+// indivual employees
+// function getEmployeeById() {
 
-}
+// }
+// function getUnits() {
+
+// }
+

@@ -2,15 +2,28 @@ const router = require('express').Router();
 const { Customers, Employees } = require('../../models');
 
 router.get('/', async (req, res) => {
+    console.log('GET request to CUSTOMER received');
     try {
         const customerData = await Customers.findAll({
             include: [
                 {model: Employees}
             ]
         })
-        res.status(200).json(customerData);
+        // console.log(customerData);
+        const renderedCustomers = customerData.map((customers) => {
+            return customers.get({plain: true})
+        })
+        console.log(renderedCustomers);
+        res.status(200).render('customer', {
+            renderedCustomers,
+        });
+
+
+        // res.status(200).json(customerData);
+        console.log('GET request to CUSTOMER successful');
     } catch (err) {
         res.status(400).json(err)
+        console.log('GET request to CUSTOMER failed');
     }
 })
 

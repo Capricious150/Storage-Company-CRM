@@ -1,0 +1,7 @@
+      <div class="border border-primary" style="width: 100vw">
+        <div id="unitInfo" class="topBox">Customer information goes here</div>
+        {{#each renderedCustomers as |customer|}}
+        <p>{{customer.id}}</p>
+        <p>{{customer.first_name}}</p>
+        {{/each}}
+      </div>

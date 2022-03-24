@@ -39,7 +39,7 @@ customers.init(
         },
         insurance_type: {
             type: DataTypes.TEXT,
-            allowNull: false,
+            allowNull: true,
         },
         customer_since: {
             type: DataTypes.DATE,

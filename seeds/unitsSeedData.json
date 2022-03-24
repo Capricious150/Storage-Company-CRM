@@ -3,7 +3,9 @@
         "id": "2",
         "unit_type": "small",
         "available": "true",
-        "insured": "false"
+        "insured": "false",
+        "can_transport": "true",
+        "customer_id": "2"
     },
     {
         "id": "10",

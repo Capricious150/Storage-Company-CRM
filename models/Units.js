@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const { Customers } = require('./Customers')
 
 class units extends Model {}
 
@@ -11,7 +12,7 @@ units.init (
             primaryKey: true,
         },
         unit_type: {
-            type: DataTypes.STRING(30),
+            type: DataTypes.STRING,
             allowNull: false,
         },
         available: {
@@ -23,7 +24,7 @@ units.init (
             allowNull: false,
         },
         insured_items: {
-            type: DataTypes.TEXT(500),
+            type: DataTypes.TEXT,
         },
         can_transport: {
             type: DataTypes.BOOLEAN,
@@ -32,7 +33,7 @@ units.init (
         customer_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'Customers',
+                model: 'customers',
                 key: 'id',
             },
         },
@@ -40,6 +41,7 @@ units.init (
     {
         sequelize,
         timestamps: true,
+        modelName: 'units',
     },
 );
 

@@ -2,6 +2,7 @@ const Employees = require('./Employees')
 const Units = require('./Units')
 const Customers = require('./Customers')
 
+
 Customers.belongsTo(Employees, {
     foreignKey: 'employee_ref',
     onDelete: 'CASCADE',

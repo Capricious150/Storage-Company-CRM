@@ -6,8 +6,8 @@ class employees extends Model {}
 employees.init (
     {
         id: {
-            type: DataTypes.UUID,
-            defaultValue: DataTypes.UUIDV4,
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
             primaryKey: true,
             allowNull: false,
         },
@@ -51,6 +51,7 @@ employees.init (
     {
         sequelize,
         timestamps: true,
+        modelName: 'employees',
     },
 );
 

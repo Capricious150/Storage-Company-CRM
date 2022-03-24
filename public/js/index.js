@@ -16,9 +16,14 @@ function getCustomers() {
 }
 
  //all customer info, recent and past issues
+ //??is manager entering cust id or clicking link
 function getCustomerById() {
-    fetch('../')
-}
+    fetch('../models/employee')
+        .then( response => {
+           return response.json(); 
+    })
+    .then((data) => {
+};
 
 //all employees
 function getEmployee(){
@@ -38,17 +43,15 @@ function getEmployee(){
 function getEmployeeById() {
 
 }
-
-//
-function getOpenIssues(){
-
-}
-
-function getClosedIssues(){
-
-}
-
-
 function getUnits() {
 
 }
+
+//
+// function getOpenIssues(){
+
+// }
+
+// function getClosedIssues(){
+
+// }

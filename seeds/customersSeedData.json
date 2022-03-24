@@ -1,14 +1,23 @@
 [
     {
-        "first_name": "John",
-        "last_name": "Doe",
+        "first_name": "john",
+        "last_name": "doe",
         "current_customer": true,
         "good_standing": true,
         "current_ballance": 350.00,
         "insured": true,
-        "insurance_type": "Allstate Storage Plus",
+        "insurance_type": "allstate storage plus",
         "customer_since": "2022-03-23 14:30:00",
         "units_owned": "2,4,7",
-        "employee_ref": 
+        "employee_ref": "3456"
     },
+    {
+        "first_name": "maggie",
+        "last_name": "marshal",
+        "current_customer": false,
+        "good_standing": false,
+        "current_ballance": 3567.45,
+        "customer_since": "2022-03-13 08:46:32",
+        "employee_ref": "3456"
+    }
 ]

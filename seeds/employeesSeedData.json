@@ -1,0 +1,19 @@
+[
+    {
+        "password": "saraHamp10",
+        "first_name": "sara",
+        "last_name": "hampton",
+        "role": "hourly",
+        "privlages": "user",
+        "customers": "1, 5, 8",
+        "manager_id": "2"
+    },
+    {
+        "password": "jakeWrig12",
+        "first_name": "jake",
+        "last_name": "wright",
+        "role": "manager",
+        "privlages": "admin",
+        "customers": "3, 4"
+    }
+]

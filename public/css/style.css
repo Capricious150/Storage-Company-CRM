@@ -84,17 +84,14 @@ body {
 
 }
 
-.map{
-  height: 40px;
-  width: 60px;
-  border: 1px solid black;
-  border-radius: 5px;
-
-  margin: 20px;
-
-}
-
 .timeSlot{
   display: flex;
   align-items: center;
+}
+
+.custButtons{
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  justify-content: center;
 }

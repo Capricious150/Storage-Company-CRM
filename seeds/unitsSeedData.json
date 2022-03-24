@@ -1,0 +1,17 @@
+[
+    {
+        "id": "2",
+        "unit_type": "small",
+        "available": "true",
+        "insured": "false"
+    },
+    {
+        "id": "10",
+        "unit_type": "large",
+        "available": "false",
+        "insured": "true",
+        "insured_items": "eye patch, treasure chest, black hat, flintlock",
+        "can_transport": "true",
+        "customer_id": "1"
+    }
+]

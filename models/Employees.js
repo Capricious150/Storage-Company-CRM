@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Employees extends Model {}
+class employees extends Model {}
 
-Employees.init (
+employees.init (
     {
         id: {
             type: DataTypes.UUID,
@@ -44,12 +44,8 @@ Employees.init (
         customers: {
             type: DataTypes.TEXT,
         },
-        manager_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'Employees',
-                key: 'id',
-            },
+        manager: {
+            type: DataTypes.STRING,
         },
     },
     {
@@ -58,4 +54,4 @@ Employees.init (
     },
 );
 
-module.exports = Employees;
+module.exports = employees;

@@ -1,5 +1,8 @@
 const doughnut = require("chart.js");
 const viewCustButton = document.getElementById('viewCustomersButton');
+const viewUnitsButton = document.getElementById('viewUnitsButton');
+
+
 //all customers
 
 const getCustomers = async () => {
@@ -8,7 +11,7 @@ const getCustomers = async () => {
     })
     console.log(response);
     if (response.ok) {
-        // document.location.replace('/customer/');
+        document.location.replace('/customer/');
       } else {
         alert('Failed.');
       }
@@ -36,31 +39,16 @@ const getEmployee = async () => {
     }
 
 viewCustButton.addEventListener('click', getCustomers);
+viewUnitsButton.addEventListener('click', getUnits);
 
-const data = {
-    labels: [
-      'Red',
-      'Blue',
-      'Yellow'
-    ],
-    datasets: [{
-      label: '',
-      data: [],
-      backgroundColor: [
-        'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)',
-        'rgb(255, 205, 86)'
-      ],
-      hoverOffset: 4
-    }]
-  };
-const config = {
-    type: 'doughnut',
-    data: data,
-  };
-
-    data = {
-    datasets: [{
-        data: [10, 20, 30]
-    }],
-}
+const getUnits = async () => {
+    const response = await fetch('/storage', {
+        method: 'GET'
+    })
+    console.log(response);
+    if (response.ok) {
+        document.location.replace('/storage');
+      } else {
+        alert('Failed.');
+      }
+    }

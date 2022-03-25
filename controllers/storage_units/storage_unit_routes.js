@@ -1,5 +1,11 @@
 const router = require('express').Router();
 const { Units, Customers } = require('../../models');
+const path = require('path');
+
+router.get('/customers.html', (req, res) => res.sendFile(path.resolve("public/html/customers.html")));
+router.get('/issues.html', (req, res) => res.sendFile(path.resolve("public/html/issues.html")));
+router.get('/employee.html', (req, res) => res.sendFile(path.resolve("public/html/employee.html")));
+router.get('/units.html', (req, res) => res.sendFile(path.resolve("public/html/units.html")));
 
 router.get('/', async (req, res) => {
     console.log('GET request to CUSTOMER received');
@@ -93,6 +99,7 @@ router.delete('/:id', async (req, res) => {
         res.status(400).json(err)
     }
 });
+
 
 
 module.exports = router;

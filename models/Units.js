@@ -45,4 +45,4 @@ Units.init (
     },
 );
 
-module.exports = units;
+module.exports = Units;

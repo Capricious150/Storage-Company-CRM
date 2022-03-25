@@ -63,4 +63,4 @@ Customers.init(
     },
 );
 
-module.exports = customers;
+module.exports = Customers;

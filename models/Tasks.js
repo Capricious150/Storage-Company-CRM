@@ -30,4 +30,4 @@ Tasks.init (
     },
 );
 
-module.exports = tasks;
+module.exports = Tasks;

@@ -55,4 +55,4 @@ Employees.init (
     },
 );
 
-module.exports = employees;
+module.exports = Employees;

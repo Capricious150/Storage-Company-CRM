@@ -1,3 +1,8 @@
+const loginButton = document.getElementById("btn_login");
+const idBox = document.getElementById("employee_id");
+const passBox = document.getElementById("password");
+console.log("I can see login.js");
+
 // const loginFormHandler = async (event) => {
 //     event.preventDefault();
   
@@ -24,18 +29,30 @@
 //     .addEventListener('submit', loginFormHandler);
   
 
-const loginButton = document.getElementById("btn_login");
 
 
 loginButton.addEventListener("click", (e) => {
     e.preventDefault();
-    const employee_id = loginForm.employee_id.value;
-    const password = loginForm.password.value;
+    console.log("Login Button got clicked")
+    const employee_id = idBox.value;
+    const password = passBox.value;
 
-    if (employee_id === "" && password === "true") {
+    if (employee_id && password) {
+        const response = await fetch('/api/users/login', {
+            method: 'POST',
+            body: JSON.stringify({ employee_id, password }),
+            headers: { 'Content-Type': 'application/json' },
+          });
+      
+          if (response.ok) {
+            document.location.replace('/customers.html');
+          } else {
+            alert('Failed to log in.');
+          }
+        
         alert("You have successfully logged in.");
-        location.replace('/customer');
     } else {
+        console.log("Something went wrong with the event!")
         loginErrorMsg.style.opacity = 1;
     }
 }) 

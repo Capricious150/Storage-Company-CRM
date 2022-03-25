@@ -1,6 +1,4 @@
-
-// const customerList = document.querySelector('ul');
-// const employeeList = document.querySelector('ul');
+const doughnut = require("chart.js");
 const viewCustButton = document.getElementById('viewCustomersButton');
 const viewUnitsButton = document.getElementById('viewUnitsButton');
 
@@ -19,31 +17,29 @@ const getCustomers = async () => {
       }
     }
 
-function getCustomerById() {
-    fetch('../models/employee')
-        .then( response => {
-           return response.json(); 
-    })
-    .then((data) => {
-})};
+// function getCustomerById() {
+//     fetch('../models/employee')
+//         .then( response => {
+//            return response.json(); 
+//     })
+//     .then((data) => {
+// })};
 
 //all employees
-function getEmployee(){
-    fetch('../models/employee')
-        .then( response => {
-           return response.json(); 
+const getEmployee = async () => {
+    const response = await fetch('/employees/', {
+        method: 'GET'
     })
-    .then((data) => {
-        for (var i = 0; i < data.length; i++)
-        var listItem = document.createElement('li');
-        listItem.textContent = data[i];
-        employeeList.appendChild(listItem);
-    });
-}
+    console.log(response);
+    if (response.ok) {
+        // document.location.replace('/employees/');
+      } else {
+        alert('Failed.');
+      }
+    }
 
 viewCustButton.addEventListener('click', getCustomers);
 viewUnitsButton.addEventListener('click', getUnits);
-
 
 const getUnits = async () => {
     const response = await fetch('/storage', {
@@ -56,4 +52,3 @@ const getUnits = async () => {
         alert('Failed.');
       }
     }
-

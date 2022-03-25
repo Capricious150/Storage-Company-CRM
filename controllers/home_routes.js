@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const path = require('path');
-const { Employees } = require('../../models');
+const { Employees } = require('../models');
 
 router.get('/', (req, res) => res.sendFile(path.resolve("public/html/login.html")));
 router.get('/customers.html', (req, res) => res.sendFile(path.resolve("public/html/customers.html")));

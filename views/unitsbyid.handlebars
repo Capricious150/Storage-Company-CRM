@@ -1,53 +1,50 @@
 <div class="windowOne">
   <div class="border border-primary" style="width: 75vw">
     <div class="custButtons">
-       <button
-            id="assignUnitsButton"
-            type="button"
-            class="btn btn-outline-primary custButtons"
-          >
-            Assign Units
-          </button>
-          <button
-            id="removeUnitButton"
-            type="button"
-            class="btn btn-outline-primary custButtons"
-          >
-            Remove Units
-          </button> 
+      <button
+        id="assignUnitsButton"
+        type="button"
+        class="btn btn-outline-primary custButtons"
+      >
+        Assign Units
+      </button>
+      <button
+        id="removeUnitButton"
+        type="button"
+        class="btn btn-outline-primary custButtons"
+      >
+        Remove Units
+      </button>
     </div>
     <div class="unitCards">
       {{#each renderedUnits as |units|}}
-              <div id="u-{{units.id}}" class="card" style="width: 12rem;">
-        <a href="./{{units.id}}"><img id="u-{{units.id}}" class="card-img-top" src="https://images.unsplash.com/photo-1551313158-73d016a829ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8c3RvcmFnZSUyMHVuaXRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Card image cap" /></a>
-        <div id="u-{{units.id}}" class="card-body">
-          <p id="u-{{units.id}}" class="card-text">ID: {{units.id}} </p>
-                  <p id="u-{{units.id}}" class="card-text">Size: {{units.unit_type}}</p>
-
-        </div>
-      </div>
+        {{> unit-partial}}
 
       {{/each}}
 
-
     </div>
 
-    
-    <ul>
-      <!-- <li id="toDoItems"></li> -->
-    </ul>
   </div>
   <div class="border border-primary" style="width: 100vw">
-    <div id="unitInfo" class="topBox">Unit information goes here</div>
-    <p>ID: {{renderedUnit.id}} Size: {{renderedUnit.unit_type}}</p>
-    <p>Availability: 
+    <div id="unitInfo" class="topBox">
+      <p>ID: {{renderedUnit.id}} Size: {{renderedUnit.unit_type}}</p>
+      <p>Availability:
         {{#if renderedUnit.available}} Unit is available! {{/if}}
-        {{#unless renderedUnit.available}} Unit is currently unavailable. {{/unless}}
-    </p>
-    <p>Insured: {{#if renderedUnit.insured}} This unit is insured. 
-        <p>The owner has insured the following items: {{renderedUnit.insured_items}}</p> {{/if}}
+        {{#unless renderedUnit.available}}
+          Unit is currently unavailable.
+        {{/unless}}
+      </p>
+      <p>Insured:
+        {{#if renderedUnit.insured}}
+          This unit is insured.
+          <p>The owner has insured the following items:
+            {{renderedUnit.insured_items}}</p>
+        {{/if}}
         {{#unless renderedUnit.insured}} This unit is not insured. {{/unless}}
-    </p>
-    {{#if renderedUnit.can_transport}} <p>This unit is prepared for transport</p>{{/if}}
+      </p>
+      {{#if renderedUnit.can_transport}}
+        <p>This unit is prepared for transport</p>{{/if}}
+
+    </div>
   </div>
 </div>

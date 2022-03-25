@@ -99,8 +99,10 @@ body {
 
 .unitCards{
   display:flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .customerInformation{
@@ -124,4 +126,10 @@ body {
 .customerPartial{
   margin: 20px;
   display: flex;
+}
+
+.unitPartial{
+  border: 1px solid #007bff;
+  margin: 5px;
+  
 }

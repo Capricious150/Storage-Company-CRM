@@ -40,13 +40,33 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
     console.log('in the route')
     try {
-        const soleStorageUnit = await Units.findByPk(req.params.id)
+        const storageUnits = await Units.findAll({
+            include: [
+                {model: Customers}
+            ]
+        });
+        const renderedUnits = storageUnits.map((units)=>{
+            return units.get({plain: true})
+        })
+
+
+        const soleStorageUnit = await Units.findByPk(req.params.id,
+            {
+                include: [
+                    {model: Customers}
+                ]
+            })
         console.log(soleStorageUnit, req.params.id)
         if (!soleStorageUnit){
             res.status(500).json({message: "No Storage Unit with that ID found!"});
             return
         }
-        res.status(200).json(soleStorageUnit);
+
+        const renderedUnit = soleStorageUnit.get({plain: true});
+        res.status(200).render('unitsbyid', {
+            renderedUnits,
+            renderedUnit,
+        });
     } catch (err) {
         res.status(400).json(err);
     }

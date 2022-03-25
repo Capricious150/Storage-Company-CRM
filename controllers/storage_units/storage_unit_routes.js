@@ -24,29 +24,24 @@ router.get('/', async (req, res) => {
         console.log(renderedUnits);
 
         res.status(200).render('units', {
-            storageUnits,
+            renderedUnits,
         });
-        console.log('GET request to CUSTOMER successful');
+        console.log('GET request to UNIT successful');
 
 
 
     } catch (err) {
         res.status(400).json(err)
-        console.log('GET request to CUSTOMER failed');
+        console.log('GET request to UNIT failed');
 
     }
 });
 
 router.get('/:id', async (req, res) => {
+    console.log('in the route')
     try {
-        const soleStorageUnit = await Units.findByPk(
-            {
-                where:
-                {
-                    id: req.params.id
-                }
-            }
-        )
+        const soleStorageUnit = await Units.findByPk(req.params.id)
+        console.log(soleStorageUnit, req.params.id)
         if (!soleStorageUnit){
             res.status(500).json({message: "No Storage Unit with that ID found!"});
             return

@@ -1,0 +1,44 @@
+<div class="windowOne">
+  <div class="border border-primary" style="width: 75vw">
+    <div class="custButtons">
+       <button
+            id="assignUnitsButton"
+            type="button"
+            class="btn btn-outline-primary custButtons"
+          >
+            Assign Units
+          </button>
+          <button
+            id="removeUnitButton"
+            type="button"
+            class="btn btn-outline-primary custButtons"
+          >
+            Remove Units
+          </button> 
+    </div>
+    <div class="unitCards">
+      {{#each renderedUnits as |units|}}
+              <div id="u-{{units.id}}" class="card" style="width: 12rem;">
+        <img id="u-{{units.id}}" class="card-img-top" src="https://images.unsplash.com/photo-1551313158-73d016a829ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8c3RvcmFnZSUyMHVuaXRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Card image cap" />
+        <div id="u-{{units.id}}" class="card-body">
+          <p id="u-{{units.id}}" class="card-text">id: {{units.id}} </p>
+                  <p id="u-{{units.id}}" class="card-text">size: {{units.unit_type}}</p>
+
+        </div>
+      </div>
+
+      {{/each}}
+
+
+    </div>
+
+    
+    <ul>
+      <!-- <li id="toDoItems"></li> -->
+    </ul>
+  </div>
+  <div class="border border-primary" style="width: 100vw">
+    <div id="unitInfo" class="topBox">Unit information goes here</div>
+
+  </div>
+</div>

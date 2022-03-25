@@ -41,19 +41,20 @@ function getEmployee(){
     });
 }
 
-viewCustButton.addEventListener('click', getCustomers);
-viewUnitsButton.addEventListener('click', getUnits);
 
 
 const getUnits = async () => {
-    const response = await fetch('/storage', {
+    const response = await fetch('/storage/', {
         method: 'GET'
     })
     console.log(response);
     if (response.ok) {
-        document.location.replace('/storage');
+        document.location.replace('/storage/');
       } else {
         alert('Failed.');
       }
     }
 
+    viewCustButton.addEventListener('click', getCustomers);
+    viewUnitsButton.addEventListener('click', getUnits);
+    

@@ -1,0 +1,33 @@
+
+    <div class="windowOne">
+      <div class="border border-primary" style="width: 75vw">
+        <div class="custButtons">
+          <button
+            id="viewUnitsButton"
+            type="button"
+            class="btn btn-outline-primary custButtons"
+          >
+            View Units
+          </button>
+          <button
+            id=""
+            type="button"
+            class="btn btn-outline-primary custButtons"
+          >
+            Another button?
+          </button>
+        </div>
+        <ul>
+          <!-- <li id="toDoItems"></li> -->
+        </ul>
+      </div>
+      <div class="border border-primary" style="width: 100vw">
+        <div id="unitInfo" class="topBox">Unit information goes here</div>
+        {{#each renderedUnits as |units|}}
+        <p>{{units.id}}</p>
+        <p>{{units.unit_type}}</p>
+        {{/each}}
+
+
+      </div>
+    </div>

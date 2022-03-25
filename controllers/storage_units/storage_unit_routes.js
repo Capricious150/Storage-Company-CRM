@@ -19,13 +19,13 @@ router.get('/', async (req, res) => {
         res.status(200).render('units', {
             storageUnits,
         });
-        console.log('GET request to CUSTOMER successful');
+        console.log('GET request to UNIT successful');
 
 
 
     } catch (err) {
         res.status(400).json(err)
-        console.log('GET request to CUSTOMER failed');
+        console.log('GET request to UNIT failed');
 
     }
 });

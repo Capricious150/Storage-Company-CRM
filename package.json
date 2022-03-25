@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chart.js": "^3.7.1",
     "connect-session-sequelize": "^7.1.2",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
@@ -21,7 +22,6 @@
     "mysql2": "^2.3.3",
     "sequelize": "^6.17.0"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Capricious150/Storage-Company-CRM.git"

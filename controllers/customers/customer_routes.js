@@ -29,6 +29,16 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
+        const customerData = await Customers.findAll({
+            include: [
+                {model: Employees}
+            ]
+        })
+        // console.log(customerData);
+        const renderedCustomers = customerData.map((customers) => {
+            return customers.get({plain: true})
+        })
+
         const soleCustomerData = await Customers.findByPk(req.params.id,{
             include: [
                 {model: Employees}
@@ -38,7 +48,11 @@ router.get('/:id', async (req, res) => {
             res.status(500).json({message: "No customer with that ID found"})
             return
         }
-        res.status(200).json(soleCustomerData);
+        const renderedCustomer = soleCustomerData.get({plain: true})
+        res.status(200).render('customerbyid', {
+            renderedCustomers,
+            renderedCustomer
+        })
     } catch (err){
         res.status(400).json(err)
     }

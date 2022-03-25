@@ -1,7 +1,7 @@
-// const customerList = document.querySelector('ul');
-// const employeeList = document.querySelector('ul');
 const viewCustButton = document.getElementById("viewCustomersButton");
 const assignUnitsButton = document.getElementById("assignUnitsButton");
+const doughnut = require("chart.js");
+
 
 //all customers
 
@@ -41,27 +41,19 @@ async function getUnitById(id) {
     });
 }
 
-function getCustomerById() {
-  fetch("../models/employee")
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {});
-}
 
 //all employees
-function getEmployee() {
-  fetch("../models/employee")
-    .then((response) => {
-      return response.json();
+const getEmployee = async () => {
+    const response = await fetch('/employees/', {
+        method: 'GET'
     })
-    .then((data) => {
-      for (var i = 0; i < data.length; i++)
-        var listItem = document.createElement("li");
-      listItem.textContent = data[i];
-      employeeList.appendChild(listItem);
-    });
-}
+    console.log(response);
+    if (response.ok) {
+        // document.location.replace('/employees/');
+      } else {
+        alert('Failed.');
+      }
+    }
 
 if (viewCustButton) {
   viewCustButton.addEventListener("click", getCustomers);
@@ -81,5 +73,3 @@ document.addEventListener("click", (event) => {
   }
   // event.stopPropagation();
 });
-
-

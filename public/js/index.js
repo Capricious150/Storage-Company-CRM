@@ -1,7 +1,7 @@
 // const customerList = document.querySelector('ul');
 // const employeeList = document.querySelector('ul');
 const viewCustButton = document.getElementById("viewCustomersButton");
-const viewUnitsButton = document.getElementById("viewUnitsButton");
+const assignUnitsButton = document.getElementById("assignUnitsButton");
 
 //all customers
 
@@ -66,8 +66,8 @@ if (viewCustButton) {
   viewCustButton.addEventListener("click", getCustomers);
 }
 
-if (viewUnitsButton) {
-  viewUnitsButton.addEventListener("click", getUnits);
+if (assignUnitsButton) {
+  assignUnitsButton.addEventListener("click", getUnits);
 }
 
 document.addEventListener("click", (event) => {
@@ -76,6 +76,9 @@ document.addEventListener("click", (event) => {
     const unitId = event.target.id.split("-")[1];//[u-, 2]
     getUnitById(unitId)
     console.log(unitId);
+    //make fetch request to endpoint /storage/unitId/id
+    const singleUnit = getUnitById(unitId)
+    console.log(singleUnit)
   }
   // event.stopPropagation();
 });

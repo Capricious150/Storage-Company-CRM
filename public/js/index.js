@@ -1,6 +1,4 @@
-
-// const customerList = document.querySelector('ul');
-// const employeeList = document.querySelector('ul');
+const doughnut = require("chart.js");
 const viewCustButton = document.getElementById('viewCustomersButton');
 //all customers
 
@@ -16,35 +14,53 @@ const getCustomers = async () => {
       }
     }
 
-function getCustomerById() {
-    fetch('../models/employee')
-        .then( response => {
-           return response.json(); 
-    })
-    .then((data) => {
-})};
+// function getCustomerById() {
+//     fetch('../models/employee')
+//         .then( response => {
+//            return response.json(); 
+//     })
+//     .then((data) => {
+// })};
 
 //all employees
-function getEmployee(){
-    fetch('../models/employee')
-        .then( response => {
-           return response.json(); 
+const getEmployee = async () => {
+    const response = await fetch('/employees/', {
+        method: 'GET'
     })
-    .then((data) => {
-        for (var i = 0; i < data.length; i++)
-        var listItem = document.createElement('li');
-        listItem.textContent = data[i];
-        employeeList.appendChild(listItem);
-    });
-}
+    console.log(response);
+    if (response.ok) {
+        // document.location.replace('/employees/');
+      } else {
+        alert('Failed.');
+      }
+    }
 
 viewCustButton.addEventListener('click', getCustomers);
 
-// indivual employees
-// function getEmployeeById() {
+const data = {
+    labels: [
+      'Red',
+      'Blue',
+      'Yellow'
+    ],
+    datasets: [{
+      label: '',
+      data: [],
+      backgroundColor: [
+        'rgb(255, 99, 132)',
+        'rgb(54, 162, 235)',
+        'rgb(255, 205, 86)'
+      ],
+      hoverOffset: 4
+    }]
+  };
+const config = {
+    type: 'doughnut',
+    data: data,
+  };
 
-// }
-// function getUnits() {
-
-// }
-
+    data = {
+    datasets: [{
+        data: [10, 20, 30]
+    }],
+}

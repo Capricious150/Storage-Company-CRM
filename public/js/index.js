@@ -2,6 +2,9 @@
 // const customerList = document.querySelector('ul');
 // const employeeList = document.querySelector('ul');
 const viewCustButton = document.getElementById('viewCustomersButton');
+const viewUnitsButton = document.getElementById('viewUnitsButton');
+
+
 //all customers
 
 const getCustomers = async () => {
@@ -39,12 +42,18 @@ function getEmployee(){
 }
 
 viewCustButton.addEventListener('click', getCustomers);
+viewUnitsButton.addEventListener('click', getUnits);
 
-// indivual employees
-// function getEmployeeById() {
 
-// }
-// function getUnits() {
-
-// }
+const getUnits = async () => {
+    const response = await fetch('/storage', {
+        method: 'GET'
+    })
+    console.log(response);
+    if (response.ok) {
+        document.location.replace('/storage');
+      } else {
+        alert('Failed.');
+      }
+    }
 

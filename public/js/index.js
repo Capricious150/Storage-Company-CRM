@@ -30,9 +30,10 @@ async function getUnits() {
   }
 }
 
-function getUnitById(id) {//this route isnt working 
-  fetch(`/storage/${id}`)
+async function getUnitById(id) { 
+  return await fetch(`/storage/${id}`)
     .then((response) => {
+      console.log(response)
       return response.json();
     })
     .then((data) => {
@@ -74,8 +75,6 @@ document.addEventListener("click", (event) => {
   if (event.target.id.includes("u-")) {
     console.log("found it", event.target.id);//event.target.id = u-2
     const unitId = event.target.id.split("-")[1];//[u-, 2]
-    getUnitById(unitId)
-    console.log(unitId);
     //make fetch request to endpoint /storage/unitId/id
     const singleUnit = getUnitById(unitId)
     console.log(singleUnit)

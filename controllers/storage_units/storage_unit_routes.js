@@ -31,16 +31,9 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
+    console.log('in the route')
     try {
-        const soleStorageUnit = await Units.findByPk(
-            {
-                where:
-                {
-                    id: req.params.id
-                }
-            }
-
-        )
+        const soleStorageUnit = await Units.findByPk(req.params.id)
         console.log(soleStorageUnit, req.params.id)
         if (!soleStorageUnit){
             res.status(500).json({message: "No Storage Unit with that ID found!"});

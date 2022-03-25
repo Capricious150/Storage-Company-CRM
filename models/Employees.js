@@ -1,7 +1,18 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const bcrypt = require('bcrypt');
 
-class Employees extends Model {}
+class Employees extends Model {
+    checkPassword(loginPw){
+        console.log(`checkPassword Function is running with ${loginPw} as the entry and ${this.password} as the correct password`)
+        if (loginPw === this.password){
+            return true
+        } else {
+            return false
+        };
+    }
+}
+
 
 Employees.init (
     {

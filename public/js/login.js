@@ -31,14 +31,14 @@ console.log("I can see login.js");
 
 
 
-loginButton.addEventListener("click", (e) => {
+loginButton.addEventListener("click", async (e) => {
     e.preventDefault();
     console.log("Login Button got clicked")
     const employee_id = idBox.value;
     const password = passBox.value;
 
     if (employee_id && password) {
-        const response = await fetch('/api/users/login', {
+        const response = await fetch('/login', {
             method: 'POST',
             body: JSON.stringify({ employee_id, password }),
             headers: { 'Content-Type': 'application/json' },
@@ -49,8 +49,6 @@ loginButton.addEventListener("click", (e) => {
           } else {
             alert('Failed to log in.');
           }
-        
-        alert("You have successfully logged in.");
     } else {
         console.log("Something went wrong with the event!")
         loginErrorMsg.style.opacity = 1;

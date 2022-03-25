@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const path = require('path');
-const { Employees } = require('../../models');
+const { Employees } = require('../models');
 
 router.get('/', (req, res) => res.sendFile(path.resolve("public/html/login.html")));
 router.get('/customers.html', (req, res) => res.sendFile(path.resolve("public/html/customers.html")));
@@ -9,27 +9,30 @@ router.get('/employee.html', (req, res) => res.sendFile(path.resolve("public/htm
 // router.get('/units.html', (req, res) => res.sendFile(path.resolve("public/html/units.html")));
 
 router.post('/login', async (req, res) => {
-
+    console.info("POST to /login RECEIVED");
+    console.info(req.body.password);
     try {
         const dbUserData = await Employees.findOne({
           where: {
             id: req.body.employee_id,
           },
         });
-    
+        
         if (!dbUserData) {
           res
             .status(400)
             .json({ message: 'Incorrect email or password. Please try again!' });
+            console.info("Something went wrong finding the user")
           return;
         }
-    
+        console.log(dbUserData);
         const validPassword = await dbUserData.checkPassword(req.body.password);
     
         if (!validPassword) {
           res
             .status(400)
             .json({ message: 'Incorrect email or password. Please try again!' });
+            console.info("Something went wrong with the password")
           return;
         }
     

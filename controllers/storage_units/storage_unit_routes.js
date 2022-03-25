@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
         console.log(renderedUnits);
 
         res.status(200).render('units', {
-            storageUnits,
+            renderedUnits,
         });
         console.log('GET request to UNIT successful');
 
@@ -39,7 +39,9 @@ router.get('/:id', async (req, res) => {
                     id: req.params.id
                 }
             }
+
         )
+        console.log(soleStorageUnit, req.params.id)
         if (!soleStorageUnit){
             res.status(500).json({message: "No Storage Unit with that ID found!"});
             return

@@ -1,38 +1,41 @@
-    <div class="windowOne">
-      <div class="border border-primary" style="width: 75vw">
-        <div class="custButtons">
-          <button
-            id="viewCustomersButton"
-            type="button"
-            class="btn btn-outline-primary custButtons"
-          >
-            View Customers
-          </button>
-          <button
-            id=""
-            type="button"
-            class="btn btn-outline-primary custButtons"
-          >
-            Another button?
-          </button>
-
-        <div>
-        {{#each renderedCustomers as |customer|}}
-        <p>{{customer.id}}. {{customer.first_name}}</p>
-        <a href = './{{customer.id}}'>View {{customer.first_name}} {{customer.last_name}}</a>
-        {{/each}}
-        </div>
-
-        </div>
-        <ul>
-          <!-- <li id="toDoItems"></li> -->
-        </ul>
-      </div>
-        <div class="border border-primary" style="width: 100vw">
-        <div id="unitInfo" class="topBox">Customer information goes here</div>
-
-        <p>{{renderedCustomer.first_name}} {{renderedCustomer.last_name}}</p>
-        <p>Customer Balance: {{renderedCustomer.current_balance}}</p>
-        <p>Customer Since: {{renderedCustomer.customer_since}}</p>
-      </div>
+<div class="windowOne">
+  <div class="border border-primary" style="width: 75vw">
+    <div class="custButtons">
+      <button
+        id="viewCustomersButton"
+        type="button"
+        class="btn btn-outline-primary custButtons"
+      >
+        View Customers
+      </button>
+      <button id="" type="button" class="btn btn-outline-primary custButtons">
+        Another button?
+      </button>
     </div>
+      <div class="leftPanel" >
+        {{#each renderedCustomers as |customer|}}
+          <p>{{customer.id}}. {{customer.first_name}}</p>
+          <a href="./{{customer.id}}">View
+            {{customer.first_name}}
+            {{customer.last_name}}</a>
+        {{/each}}
+      </div>
+
+    
+  </div>
+  <div class="border border-primary" style="width: 100vw; height: 100vh">
+    <div id="unitInfo" class="topBox">
+      <div><p>{{renderedCustomer.first_name}} {{renderedCustomer.last_name}}</p></div>
+          <div><p>Customer Balance: {{renderedCustomer.current_balance}}</p></div>
+          <div><p>Customer Since: {{renderedCustomer.customer_since}}</p></div>
+          <div><p>Insured? {{renderedCustomer.current_customer}}</p></div>
+          <div><p>Coverage: {{renderedCustomer.insurance_type}}</p></div>
+          <div><p>Assigned Units: {{renderedCustomer.units_owned}}</p></div>
+
+
+
+
+    </div>
+
+  </div>
+</div>

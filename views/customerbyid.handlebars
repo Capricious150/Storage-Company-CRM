@@ -8,32 +8,35 @@
       >
         View Customers
       </button>
-      <button id="" type="button" class="btn btn-outline-primary custButtons">
-        Another button?
+      <button
+        id="modalBtn"
+        type="button"
+        class="btn btn-outline-primary custButtons"
+        data-bs-toggle="modal"
+        data-bs-target="#addcustModal"
+      >
+        Add Customer
       </button>
-    </div>
-      <div class="leftPanel" >
-        {{#each renderedCustomers as |customer|}}
-          <p>{{customer.id}}. {{customer.first_name}}</p>
-          <a href="./{{customer.id}}">View
-            {{customer.first_name}}
-            {{customer.last_name}}</a>
-        {{/each}}
-      </div>
 
-    
+    </div>
+    <div class="leftPanel">
+      {{#each renderedCustomers as |customer|}}
+          {{> customer-partial}}
+      {{/each}}
+    </div>
+
   </div>
   <div class="border border-primary" style="width: 100vw; height: 100vh">
     <div id="unitInfo" class="topBox">
-      <div><p>{{renderedCustomer.first_name}} {{renderedCustomer.last_name}}</p></div>
-          <div><p>Customer Balance: {{renderedCustomer.current_balance}}</p></div>
-          <div><p>Customer Since: {{renderedCustomer.customer_since}}</p></div>
-          <div><p>Insured? {{renderedCustomer.current_customer}}</p></div>
-          <div><p>Coverage: {{renderedCustomer.insurance_type}}</p></div>
-          <div><p>Assigned Units: {{renderedCustomer.units_owned}}</p></div>
-
-
-
+      <div><p>{{renderedCustomer.first_name}}
+          {{renderedCustomer.last_name}}</p></div>
+      <div><p>Customer Balance: {{renderedCustomer.current_balance}}</p></div>
+      <div><p>Customer Since: {{renderedCustomer.customer_since}}</p></div>
+      <div><p>5 STAR Customer: {{renderedCustomer.good_standing}}</p></div>
+      <div><p>Insured? {{renderedCustomer.current_customer}}</p></div>
+      <div><p>Coverage: {{renderedCustomer.insurance_type}}</p></div>
+      <div><p>Assigned Units: {{renderedCustomer.units_owned}}</p></div>
+      <div><p>Associate ID: {{renderedCustomer.employee_id}}</p></div>
 
     </div>
 

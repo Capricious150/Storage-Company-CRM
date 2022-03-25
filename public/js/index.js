@@ -1,12 +1,11 @@
 const viewCustButton = document.getElementById("viewCustomersButton");
 const assignUnitsButton = document.getElementById("assignUnitsButton");
-const Chart = require('chart.js');
 
-const myChart = new doughnut.Chart(
-  document.getElementById('myChart'),
-  config
-);
-//all customers
+// const myChart = new doughnut.Chart(
+//   document.getElementById('myChart'),
+//   config
+// );
+// all customers
 
 const getCustomers = async () => {
   const response = await fetch("/customer/", {

@@ -1,5 +1,12 @@
 const router = require('express').Router();
 const { Units, Customers } = require('../../models');
+const path = require('path');
+
+router.get('/customers.html', (req, res) => res.redirect("../customers.html"));
+router.get('/issues.html', (req, res) => res.redirect("../issues.html"));
+router.get('/employee.html', (req, res) => res.redirect("../employee.html"));
+router.get('/storage', (req, res) => res.redirect("../storage"));
+
 
 router.get('/', async (req, res) => {
     console.log('GET request to CUSTOMER received');
@@ -88,6 +95,7 @@ router.delete('/:id', async (req, res) => {
         res.status(400).json(err)
     }
 });
+
 
 
 module.exports = router;

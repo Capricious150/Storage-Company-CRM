@@ -1,6 +1,6 @@
 
     <div class="windowOne">
-      <div class="border border-primary" style="width: 75vw">
+      <div class="border border-primary random" style="width: 75vw">
         <div class="custButtons">
           <button
             id="viewCustomersButton"
@@ -17,7 +17,7 @@
             Another button?
           </button>
 
-        <div>
+        <div class="customerInformation">
         {{#each renderedCustomers as |customer|}}
         <p>{{customer.id}}. {{customer.first_name}}</p>
         <a href = './{{customer.id}}'>View {{customer.first_name}} {{customer.last_name}}</a>
@@ -25,12 +25,16 @@
         </div>
 
         </div>
-        <ul>
-          <!-- <li id="toDoItems"></li> -->
-        </ul>
       </div>
         <div class="border border-primary" style="width: 100vw">
         <div id="unitInfo" class="topBox">
+
+          {{!-- need to get more data to render here --}}
+          
+
+
+
+
           <canvas id="myChart">
             <script>
               const labels = [

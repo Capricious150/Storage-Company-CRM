@@ -90,13 +90,26 @@ body {
 
 .custButtons{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin: 10px;
   justify-content: center;
+  align-items: center;
+  width: 150px;
 }
 
 .unitCards{
   display:flex;
   flex-direction: column;
   align-items: center;
+}
+
+.customerInformation{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.random{
+  display: flex;
+  justify-content: center;
+
 }

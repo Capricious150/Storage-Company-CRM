@@ -48,3 +48,15 @@
     </div>
   </div>
 </div>
+<div class="canvasChart">
+  <canvas id="myChart"></canvas>
+</div>
+
+<script>
+  let myChart = document.getElementById("myChart").getContext("2d"); let
+  massPopChart = new Chart(myChart, { type: "doughnut", data: { labels: [
+  "Available Units", "Reserved Units", ], datasets: [ { labels:
+  "Unit-Availability", data: [{{available}},{{unavailable}}
+] }, ], }, options: {}, });
+  console.log({{available}})
+</script>

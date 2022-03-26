@@ -18,7 +18,19 @@ router.get('/', async (req, res) => {
                 {model: Customers}
             ]
         });
+
+        let available = 0;
+        let unavailable = 0;
+
         const renderedUnits = storageUnits.map((units)=>{
+            if (units.available) {
+                available++
+                
+            } else {
+                unavailable++
+                
+            }
+
             return units.get({plain: true})
         })
         console.log(renderedUnits);

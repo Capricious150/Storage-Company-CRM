@@ -25,9 +25,10 @@
     </div>
 
   </div>
-  <div class="border border-primary" style="width: 100vw">
+  <div class="border border-primary rightPanel">
     <div id="unitInfo" class="topBox">
-      <p>ID: {{renderedUnit.id}} Size: {{renderedUnit.unit_type}}</p>
+      <p>ID: {{renderedUnit.id}} </p>
+      <p> Size: {{renderedUnit.unit_type}}</p>
       <p>Availability:
         {{#if renderedUnit.available}} Unit is available! {{/if}}
         {{#unless renderedUnit.available}}
@@ -46,17 +47,26 @@
         <p>This unit is prepared for transport</p>{{/if}}
 
     </div>
-  </div>
-</div>
 <div class="canvasChart">
   <canvas id="myChart"></canvas>
 </div>
 
+
+  </div>
+</div>
+
 <script>
-  let myChart = document.getElementById("myChart").getContext("2d"); let
-  massPopChart = new Chart(myChart, { type: "doughnut", data: { labels: [
-  "Available Units", "Reserved Units", ], datasets: [ { labels:
-  "Unit-Availability", data: [{{available}},{{unavailable}}
-] }, ], }, options: {}, });
+  let myChart = document.getElementById("myChart").getContext("2d"); 
+  let massPopChart = new Chart(myChart, {
+     type: "doughnut", 
+     data: { 
+       labels: ["Available Units", "Reserved Units", ], 
+       datasets: [ { 
+         labels: "Unit-Availability", 
+         data: [{{available}}, {{unavailable}}]
+         },
+         ],}, 
+         options: {}, 
+         });
   console.log({{available}})
 </script>

@@ -18,39 +18,24 @@
     </div>
     <div class="unitCards">
       {{#each renderedUnits as |units|}}
-        <div id="u-{{units.id}}" class="card" style="width: 12rem;">
-          <a href="./{{units.id}}"><img
-              id="u-{{units.id}}"
-              class="card-img-top"
-              src="https://images.unsplash.com/photo-1551313158-73d016a829ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8c3RvcmFnZSUyMHVuaXRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
-              alt="Card image cap"
-            /></a>
-          <div id="u-{{units.id}}" class="card-body">
-            <p id="u-{{units.id}}" class="card-text">id: {{units.id}} </p>
-            <p id="u-{{units.id}}" class="card-text">size:
-              {{units.unit_type}}</p>
-
-          </div>
-        </div>
+        {{> allUnit-partial}}
 
       {{/each}}
 
     </div>
 
   </div>
-  <div class="border border-primary" style="width: 100vw">
-    <div id="unitInfo" class="topBox">Unit information goes here</div>
-
+  <div class="border border-primary rightPanelStorage">
+    <div class="canvasChartStorage">
+      <canvas id="myChart"></canvas>
+    </div>
   </div>
-</div>
 
-<div class="canvasChart">
-  <canvas id="myChart"></canvas>
 </div>
 
 <script>
   let myChart = document.getElementById("myChart").getContext("2d"); let
   massPopChart = new Chart(myChart, { type: "doughnut", data: { labels: [
-  "Available Units", "Reserved Units", ], datasets: [ { labels:
+  "Available Units", "Reserved Units" ], datasets: [ { labels:
   "Unit-Availability", data: [1,1,1] }, ], }, options: {}, });
 </script>

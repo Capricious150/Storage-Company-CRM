@@ -34,8 +34,18 @@
 </div>
 
 <script>
-  let myChart = document.getElementById("myChart").getContext("2d"); let
-  massPopChart = new Chart(myChart, { type: "doughnut", data: { labels: [
-  "Available Units", "Reserved Units" ], datasets: [ { labels:
-  "Unit-Availability", data: [1,1,1] }, ], }, options: {}, });
+  let myChart = document.getElementById("myChart").getContext("2d"); 
+  let massPopChart = new Chart(myChart, 
+  { type: "doughnut", 
+  data: { 
+    labels: [
+  "Available Units", "Reserved Units" ], 
+  datasets: [ { 
+    labels:
+  "Unit-Availability", 
+  data: [{{available}}, {{unavailable}}],
+  backgroundColor: ['#00ff55','#dd3030'] }, ], }, 
+  
+  options: {}, });
+  console.log(available, unavailable)
 </script>

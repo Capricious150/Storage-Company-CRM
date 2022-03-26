@@ -28,7 +28,7 @@ body {
   .input-field input[type="text"]:focus,
   .input-field input[type="email"]:focus,
   .input-field input[type="password"]:focus {
-    border-bottom: 2px solid #1e4de9;
+    border-bottom: 2px solid #1ee95b;
     box-shadow: none;
   }
   
@@ -132,6 +132,7 @@ body {
 
 .canvasChart{
   width: 300px;
+  /* background-color: #007bff; */
   
 }
 
@@ -162,3 +163,11 @@ body {
   margin: 5px;
 
 }
+
+.custLeftPanel{
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+  margin-bottom: 20px;
+}
+

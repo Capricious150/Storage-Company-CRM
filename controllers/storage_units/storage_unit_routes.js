@@ -37,6 +37,9 @@ router.get('/', async (req, res) => {
 
         res.status(200).render('units', {
             renderedUnits,
+            available,
+            unavailable
+
         });
         console.log('GET request to UNIT successful');
 

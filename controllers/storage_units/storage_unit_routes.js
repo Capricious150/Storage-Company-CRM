@@ -2,15 +2,47 @@ const router = require('express').Router();
 const { Units, Customers } = require('../../models');
 const path = require('path');
 
-router.get('/customers.html', (req, res) => res.redirect("../customers.html"));
-router.get('/issues.html', (req, res) => res.redirect("../issues.html"));
-router.get('/employee.html', (req, res) => res.redirect("../employee.html"));
-router.get('/storage', (req, res) => res.redirect("../storage"));
+router.get('/customers.html', (req, res) => {
 
+    if (req.session.loggedIn !== true){
+        res.redirect('/');
+      }
+
+    res.redirect("../customers.html")});
+
+
+router.get('/issues.html', (req, res) => {
+
+    if (req.session.loggedIn !== true){
+        res.redirect('/');
+      }
+
+    res.redirect("../issues.html")
+});
+router.get('/employee.html', (req, res) => {
+    
+    if (req.session.loggedIn !== true){
+        res.redirect('/');
+      }
+    
+    res.redirect("../employee.html")
+});
+
+router.get('/storage', (req, res) => { 
+
+    if (req.session.loggedIn !== true){
+        res.redirect('/');
+      }
+
+    res.redirect("../storage")
+});
 
 router.get('/', async (req, res) => {
     console.log('GET request to CUSTOMER received');
 
+    if (req.session.loggedIn !== true){
+        res.redirect('/');
+      }
 
     try {
         const storageUnits = await Units.findAll({
@@ -38,7 +70,11 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-    console.log('in the route')
+
+    if (req.session.loggedIn !== true){
+        res.redirect('/');
+      }
+
     try {
         const storageUnits = await Units.findAll({
             include: [
@@ -71,6 +107,16 @@ router.get('/:id', async (req, res) => {
         res.status(400).json(err);
     }
 });
+
+router.get('/storage/:id', (req, res) => {
+
+    if (req.session.loggedIn !== true){
+        res.redirect('/');
+      }
+
+    const storageId = req.params.id;
+    res.redirect(`../${storageId}`)
+})
 
 router.post('/', async (req, res) => {
     try {

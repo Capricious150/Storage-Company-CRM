@@ -28,7 +28,7 @@ body {
   .input-field input[type="text"]:focus,
   .input-field input[type="email"]:focus,
   .input-field input[type="password"]:focus {
-    border-bottom: 2px solid #1e4de9;
+    border-bottom: 2px solid #1ee95b;
     box-shadow: none;
   }
   
@@ -60,8 +60,7 @@ body {
 }
 
 .topBox{
-  /* height: 150px; */
-  border: 2px solid #007bff;
+  border: 1px solid #007bff;
   border-radius: 10px;
   margin: 20px;
   display: flex;
@@ -90,17 +89,16 @@ body {
 
 .custButtons{
   display: flex;
-  /* flex-direction: column; */
   margin: 10px;
   justify-content: center;
   align-items: center;
-  /* width: 150px; */
 }
 
 .unitCards{
   display:flex;
-  flex-direction: column;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .customerInformation{
@@ -125,3 +123,51 @@ body {
   margin: 20px;
   display: flex;
 }
+
+.unitPartial{
+  border: 1px solid #007bff;
+  margin: 5px;
+  
+}
+
+.canvasChart{
+  width: 300px;
+  /* background-color: #007bff; */
+  
+}
+
+.canvasChartStorage{
+  width: 500px;
+}
+
+.rightPanel{
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.rightPanelStorage{
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+
+}
+
+.allUnits{
+  border: 1px solid #007bff;
+  margin: 5px;
+
+}
+
+.custLeftPanel{
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+  margin-bottom: 20px;
+}
+

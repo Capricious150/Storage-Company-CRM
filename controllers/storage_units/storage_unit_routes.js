@@ -18,13 +18,28 @@ router.get('/', async (req, res) => {
                 {model: Customers}
             ]
         });
+
+        let available = 0;
+        let unavailable = 0;
+
         const renderedUnits = storageUnits.map((units)=>{
+            if (units.available) {
+                available++
+                
+            } else {
+                unavailable++
+                
+            }
+
             return units.get({plain: true})
         })
         console.log(renderedUnits);
 
         res.status(200).render('units', {
             renderedUnits,
+            available,
+            unavailable
+
         });
         console.log('GET request to UNIT successful');
 
@@ -45,7 +60,18 @@ router.get('/:id', async (req, res) => {
                 {model: Customers}
             ]
         });
+        let available = 0;
+        let unavailable = 0;
+        
+
         const renderedUnits = storageUnits.map((units)=>{
+            if (units.available) {
+                available++
+                
+            } else {
+                unavailable++
+                
+            }
             return units.get({plain: true})
         })
 
@@ -66,6 +92,9 @@ router.get('/:id', async (req, res) => {
         res.status(200).render('unitsbyid', {
             renderedUnits,
             renderedUnit,
+            available,
+            unavailable
+
         });
     } catch (err) {
         res.status(400).json(err);

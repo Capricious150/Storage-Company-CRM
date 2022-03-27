@@ -1,68 +1,42 @@
+<div class="windowOne">
+  <div class="border border-primary" style="width: 75vw">
+    <div class="custLeftPanel">
+      <button
+        id="viewCustomersButton"
+        type="button"
+        class="btn btn-outline-primary custButtons"
+      >
+        View Customers
+      </button>
+      <button id="" type="button" class="btn btn-outline-primary custButtons">
+        Another button?
+      </button>
+    </div>
 
-    <div class="windowOne">
-      <div class="border border-primary random" style="width: 75vw">
-        <div class="custButtons">
-          <button
-            id="viewCustomersButton"
-            type="button"
-            class="btn btn-outline-primary custButtons"
-          >
-            View Customers
-          </button>
-          <button
-            id=""
-            type="button"
-            class="btn btn-outline-primary custButtons"
-          >
-            Another button?
-          </button>
-
-        <div class="customerInformation">
+      <div class="customerInformation">
         {{#each renderedCustomers as |customer|}}
-        <p>{{customer.id}}. {{customer.first_name}}</p>
-        <a href = './{{customer.id}}'>View {{customer.first_name}} {{customer.last_name}}</a>
+          <p>{{customer.id}}.
+          <a href="./{{customer.id}}">View
+            {{customer.first_name}}
+            {{customer.last_name}}</a></p>
         {{/each}}
-        </div>
-
-        </div>
       </div>
-        <div class="border border-primary" style="width: 100vw">
-        <div id="unitInfo" class="topBox">
 
-          {{!-- need to get more data to render here --}}
-          
+  </div>
 
-
-
-
-          <canvas id="myChart">
-            <script>
-              const labels = [
-                'Good',
-                'Bad',
-              ];
-
-              const data = {
-              labels: labels,
-                datasets: [{
-                label: 'Customer Standing',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
-                data: [3, 10,],
-                }]
-                };
-
-              const config = {
-                type: 'doughnut',
-                  data: data,
-                   options: {}
-                  };
-              </script>
-          </canvas>
-        </div>
-
-      </div>
+  <div class="border border-primary rightPanelStorage">
+    <div class="canvasChartStorage">
+      <canvas id="myChart"></canvas>
     </div>
-    <div>
-      
-    </div>
+  </div>
+
+  </div>
+
+
+<script>
+  let myChart = document.getElementById("myChart").getContext("2d"); let
+  massPopChart = new Chart(myChart, { type: "doughnut", data: { labels:
+  ["Insured", "Uninsured", ], datasets: [ { label: "Customer Insurance", data: [{{insured}},
+  {{uninsured}}], backgroundColor:['#1ee95b', '#ffee00'] }, ],}, options: {}, });
+
+</script>

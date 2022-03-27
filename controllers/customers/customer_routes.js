@@ -49,13 +49,25 @@ router.get('/', async (req, res) => {
                 {model: Employees}
             ]
         })
+
+        let insured = 0;
+        let uninsured = 0;
+
         // console.log(customerData);
         const renderedCustomers = customerData.map((customers) => {
+            if(customers.insured){
+                insured++
+            } else{
+                uninsured++
+            }
+
             return customers.get({plain: true})
         })
         console.log(renderedCustomers);
         res.status(200).render('customer', {
             renderedCustomers,
+            insured,
+            uninsured
         });
 
 

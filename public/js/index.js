@@ -1,5 +1,6 @@
 const viewCustButton = document.getElementById("viewCustomersButton");
 const assignUnitsButton = document.getElementById("assignUnitsButton");
+const logoutButton = document.getElementById("logoutButton");
 
 // const myChart = new doughnut.Chart(
 //   document.getElementById('myChart'),
@@ -57,12 +58,23 @@ const getEmployee = async () => {
       }
     }
 
+const logOut = () => {
+  fetch ('/logout/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+  })
+}
+
 if (viewCustButton) {
   viewCustButton.addEventListener("click", getCustomers);
 }
 
 if (assignUnitsButton) {
   assignUnitsButton.addEventListener("click", getUnits);
+}
+
+if (logoutButton) {
+  logoutButton.addEventListener("click", logOut)
 }
 
 document.addEventListener("click", (event) => {

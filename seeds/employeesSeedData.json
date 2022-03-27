@@ -1,8 +1,8 @@
 [
     {
         "password": "saraHamp10",
-        "first_name": "sara",
-        "last_name": "hampton",
+        "first_name": "Sara",
+        "last_name": "Hampton",
         "role": "hourly",
         "privlages": "user",
         "customers": "1, 5, 8",
@@ -10,8 +10,8 @@
     },
     {
         "password": "jakeWrig12",
-        "first_name": "jake",
-        "last_name": "wright",
+        "first_name": "Jake",
+        "last_name": "Wright",
         "role": "manager",
         "privlages": "admin",
         "customers": "3, 4"

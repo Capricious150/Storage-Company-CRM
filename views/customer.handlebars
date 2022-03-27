@@ -1,6 +1,6 @@
 
     <div class="windowOne">
-      <div class="border border-primary" style="width: 75vw">
+      <div class="border border-primary random" style="width: 75vw">
         <div class="custButtons">
           <button
             id="viewCustomersButton"
@@ -16,17 +16,53 @@
           >
             Another button?
           </button>
+
+        <div class="customerInformation">
+        {{#each renderedCustomers as |customer|}}
+        <p>{{customer.id}}. {{customer.first_name}}</p>
+        <a href = './{{customer.id}}'>View {{customer.first_name}} {{customer.last_name}}</a>
+        {{/each}}
         </div>
-        <ul>
-          <!-- <li id="toDoItems"></li> -->
-        </ul>
+
+        </div>
       </div>
         <div class="border border-primary" style="width: 100vw">
-        <div id="unitInfo" class="topBox">Customer information goes here</div>
-        <p> THIS WAS RENDERED FROM A GET</p>
-        {{#each renderedCustomers as |customer|}}
-        <p>{{customer.id}}</p>
-        <p>{{customer.first_name}}</p>
-        {{/each}}
+        <div id="unitInfo" class="topBox">
+
+          {{!-- need to get more data to render here --}}
+          
+
+
+
+
+          <canvas id="myChart">
+            <script>
+              const labels = [
+                'Good',
+                'Bad',
+              ];
+
+              const data = {
+              labels: labels,
+                datasets: [{
+                label: 'Customer Standing',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [3, 10,],
+                }]
+                };
+
+              const config = {
+                type: 'doughnut',
+                  data: data,
+                   options: {}
+                  };
+              </script>
+          </canvas>
+        </div>
+
       </div>
+    </div>
+    <div>
+      
     </div>

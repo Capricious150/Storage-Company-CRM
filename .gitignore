@@ -1,3 +1,7 @@
 .env
 node_modules
+<<<<<<< HEAD
+modal-tests
+=======
 scratch.js
+>>>>>>> 4ae15e6c09490234d40d3cfec62d24fdfe32bf87

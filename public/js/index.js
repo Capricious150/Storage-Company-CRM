@@ -44,11 +44,24 @@ async function getUnitById(id) {
     });
 }
 
+// function myFunction() {
+//   // Get the checkbox
+//   var checkBox = document.getElementById("myCheck");
+//   // Get the output text
+//   var text = document.getElementById("text");
 
+//   // If the checkbox is checked, display the output text
+//   if (checkBox.checked == true){
+//     text.style.display = "block";
+//   } else {
+//     text.style.display = "none";
+//   }
+// }
 
 // script for adding new customer via modal
-function addNewEmployeeHandler(event) {
+const addNewEmployeeHandler = async (event) => {
   event.preventDefault();
+  console.log("Add New Customer Function Started")
   
   let first_name = $('#custFirstName').val();
   let last_name = $('#custLastName').val();
@@ -56,12 +69,41 @@ function addNewEmployeeHandler(event) {
   let insurance_type = $('#custInsType').val();
   let customer_since = $('#custSince').val();
   let units_owned = $('#custUntsOwnd').val();
-  let current_customer = $('#custCurnt').val();
-  let good_standing = $('#custStndng').val();
-  let insured = $('#custInsrd').val();
-  console.log(first_name)
+
+  const current_customer = () =>{
+    let currentCheckbox = $('#custCurnt')
+    
+    if (currentCheckbox.checked == true){
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const good_standing = () => {
+    let standingCheckbox = $('#custStndng')
   
-  fetch('/customer', {
+    if (standingCheckbox.checked == true){
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const insured = () => {
+    let insuredCheckbox = $('#custInsrd')
+    
+    if (insuredCheckbox.checked == true){
+      return true;
+    } else {
+      return false;
+    }
+  };
+  
+  console.log(insured);
+  console.log(first_name);
+  
+  const response = await fetch('/customer', {
       method: 'POST',
       body: JSON.stringify({
           'first_name': first_name,
@@ -77,18 +119,15 @@ function addNewEmployeeHandler(event) {
       headers: {
           'Content-Type': 'application/json',
       },
-  });
-
-
+  })
+  
+  if (response.ok) {
+    document.location.replace("/customer/");
+  } else {
+    alert("Failed.");
+  }
 console.log(first_name)
 }
-
-$('#addEmployeeBtn').on('submit', addNewEmployeeHandler);
-
-
-
-
-
 
 
 
@@ -112,6 +151,10 @@ const logOut = () => {
   })
 }
 
+const showModal = () => {
+  $("#addcustModal").modal("show");
+}
+
 if (viewCustButton) {
   viewCustButton.addEventListener("click", getCustomers);
 }
@@ -124,13 +167,18 @@ if (logoutButton) {
   logoutButton.addEventListener("click", logOut)
 }
 
-document.addEventListener("click", (event) => {
-  if (event.target.id.includes("u-")) {
-    console.log("found it", event.target.id);//event.target.id = u-2
-    const unitId = event.target.id.split("-")[1];//[u-, 2]
-    //make fetch request to endpoint /storage/unitId/id
-    const singleUnit = getUnitById(unitId)
-    console.log(singleUnit)
-  }
-  // event.stopPropagation();
-});
+$('#addcustBtn').on('click', addNewEmployeeHandler);
+$("#modalBtn").on("click", showModal);
+
+
+
+// document.addEventListener("click", (event) => {
+//   if (event.target.id.includes("u-")) {
+  //     console.log("found it", event.target.id);//event.target.id = u-2
+  //     const unitId = event.target.id.split("-")[1];//[u-, 2]
+//     //make fetch request to endpoint /storage/unitId/id
+//     const singleUnit = getUnitById(unitId)
+//     console.log(singleUnit)
+//   }
+//   // event.stopPropagation();
+// });

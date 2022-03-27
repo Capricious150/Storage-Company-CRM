@@ -8,10 +8,72 @@
       >
         View Customers
       </button>
-      <button id="" type="button" class="btn btn-outline-primary custButtons">
-        Another button?
+      <button
+        id="modalBtn"
+        type="button"
+        class="btn btn-outline-primary custButtons"
+        data-bs-toggle="modal"
+        data-bs-target="#addcustModal"
+      >
+        Add Customer
       </button>
+
     </div>
+
+
+
+    <!-- Modal -->
+  <div class="modal fade" id="addcustModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add A New Customer</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="custCurnt" value="true">
+                <label class="form-check-label" for="custCurnt">Current Customer</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="custStndng" value="true">
+                <label class="form-check-label" for="custStndng">In Good Standing</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="custInsrd" value="true">
+                <label class="form-check-label" for="custInsrd">Has Insurance</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="custFirstName" placeholder="First Name" required>
+                <label for="custFirstName">First Name</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="custLastName" placeholder="Last Name" required>
+                <label for="custLastName">Last Name</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="custCurntBln" placeholder="Current Balance on Account" required>
+                <label for="custCurntBln">Current Balance on Account</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="custInsType" placeholder="Insurance Type">
+                <label for="custInsType">Insurance Type</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="custSince" placeholder="Customer Since.." required>
+                <label for="custSince">Customer Since..</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="custUntsOwnd" placeholder="ID of all Units Owned">
+                <label for="custUntsOwnd">IDs of all Units Owned</label>
+              </div>
+              <button id="addcustBtn" type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
       <div class="customerInformation">
         {{#each renderedCustomers as |customer|}}

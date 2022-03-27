@@ -69,36 +69,39 @@ const addNewEmployeeHandler = async (event) => {
   let insurance_type = $('#custInsType').val();
   let customer_since = $('#custSince').val();
   let units_owned = $('#custUntsOwnd').val();
+  let current_customer = $('#custCurnt').val();
+  let good_standing = $('#custStndng').val();
+  let insured = $('#custInsrd').val();
 
-  const current_customer = () =>{
-    let currentCheckbox = $('#custCurnt')
+  // const current_customer = () =>{
+  //   let currentCheckbox = $('#custCurnt')
     
-    if (currentCheckbox.checked == true){
-      return true;
-    } else {
-      return false;
-    }
-  };
+  //   if (currentCheckbox.checked == true){
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // };
 
-  const good_standing = () => {
-    let standingCheckbox = $('#custStndng')
+  // const good_standing = () => {
+  //   let standingCheckbox = $('#custStndng')
   
-    if (standingCheckbox.checked == true){
-      return true;
-    } else {
-      return false;
-    }
-  };
+  //   if (standingCheckbox.checked == true){
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // };
 
-  const insured = () => {
-    let insuredCheckbox = $('#custInsrd')
+  // const insured = () => {
+  //   let insuredCheckbox = $('#custInsrd')
     
-    if (insuredCheckbox.checked == true){
-      return true;
-    } else {
-      return false;
-    }
-  };
+  //   if (insuredCheckbox.checked == true){
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // };
   
   console.log(insured);
   console.log(first_name);

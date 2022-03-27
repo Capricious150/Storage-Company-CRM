@@ -127,6 +127,14 @@ router.post('/', async (req, res) => {
     }
 });
 
+router.post('/logout', (req, res) => {
+    if (req.session.loggedIn === true){
+      req.session.destroy(() => {
+        res.status(204).redirect('../')
+      })
+    }
+  });
+
 router.put('/:id', async (req, res) =>{
     try {
         const updatedStorageUnit = await Units.update(req.body, {

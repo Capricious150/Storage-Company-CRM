@@ -20,5 +20,15 @@
         "current_balance": 3567.45,
         "customer_since": "2022-03-13 08:46:32",
         "employee_id": "2"
+    },
+    {
+        "first_name": "Joe",
+        "last_name": "Davis",
+        "current_customer": false,
+        "good_standing": false,
+        "insured": false,
+        "current_balance": 1580.10,
+        "customer_since": "2022-03-13 08:46:32",
+        "employee_id": "2"
     }
 ]

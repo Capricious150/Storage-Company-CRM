@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Units, Customers } = require('../../models');
 const path = require('path');
 
+// 4 Redirects in case our customers do some squirrely things with the navbar or URL
 router.get('/customers.html', (req, res) => {
 
     if (req.session.loggedIn !== true){
@@ -37,6 +38,8 @@ router.get('/storage', (req, res) => {
     res.redirect("../storage")
 });
 
+
+// GET ALL UNITS, Serves units.handlebars
 router.get('/', async (req, res) => {
     console.log('GET request to CUSTOMER received');
 
@@ -84,6 +87,8 @@ router.get('/', async (req, res) => {
     }
 });
 
+// GET UNITS BY ID, does a GET ALL and a GET BY ID and serves both to
+// unitsbyid.handlebars
 router.get('/:id', async (req, res) => {
 
     if (req.session.loggedIn !== true){
@@ -137,6 +142,8 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+// A simple redirect, to solve a bug where sometimes users would be served /storage/storage/:id depending
+// on how they use the Units page.
 router.get('/storage/:id', (req, res) => {
 
     if (req.session.loggedIn !== true){

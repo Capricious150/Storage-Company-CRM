@@ -2,9 +2,9 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
 
+// Login function which compared entered password with correct password. Returns a BOOL.
 class Employees extends Model {
     checkPassword(loginPw){
-        console.log(`checkPassword Function is running with ${loginPw} as the entry and ${this.password} as the correct password`)
         if (loginPw === this.password){
             return true
         } else {
@@ -49,6 +49,7 @@ Employees.init (
             allowNull: false,
         },
         // privlages key datatype.string
+        // For use in later features where only certain employees can view/add more employees
         privlages: {
             type: DataTypes.TEXT,
         },

@@ -2,6 +2,8 @@ const router = require('express').Router();
 const { Employees } = require('../../models');
 const path = require('path');
 
+// THESE CRUD OPERATIONS ARE FUNCTIONAL, BUT CURRENTLY DO NOT EXIST ON THE FRONT-END
+
 router.get('/customers.html', (req, res) => {
 
     if (req.session.loggedIn !== true){

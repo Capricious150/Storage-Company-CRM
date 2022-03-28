@@ -2,12 +2,8 @@ const viewCustButton = document.getElementById("viewCustomersButton");
 const assignUnitsButton = document.getElementById("assignUnitsButton");
 const logoutButton = document.getElementById("logoutButton");
 
-// const myChart = new doughnut.Chart(
-//   document.getElementById('myChart'),
-//   config
-// );
-// all customers
-
+// Simple GET for ALL Customers.
+// Customers by ID is handled via anchor tags in customers.handlebars and customersbyid.handlebars
 const getCustomers = async () => {
   const response = await fetch("/customer/", {
     method: "GET",
@@ -20,6 +16,7 @@ const getCustomers = async () => {
   }
 };
 
+// Simple GET for All Storage Units
 async function getUnits() {
   console.log("fetch initiated");
   const response = await fetch("/storage/", {
@@ -33,6 +30,7 @@ async function getUnits() {
   }
 }
 
+// Simple GET for Storage Units by ID
 async function getUnitById(id) { 
   return await fetch(`/storage/${id}`)
     .then((response) => {
@@ -44,19 +42,6 @@ async function getUnitById(id) {
     });
 }
 
-// function myFunction() {
-//   // Get the checkbox
-//   var checkBox = document.getElementById("myCheck");
-//   // Get the output text
-//   var text = document.getElementById("text");
-
-//   // If the checkbox is checked, display the output text
-//   if (checkBox.checked == true){
-//     text.style.display = "block";
-//   } else {
-//     text.style.display = "none";
-//   }
-// }
 
 // script for adding new customer via modal
 const addNewEmployeeHandler = async (event) => {
@@ -73,36 +58,6 @@ const addNewEmployeeHandler = async (event) => {
   let good_standing = $('#custStndng').val();
   let insured = $('#custInsrd').val();
 
-  // const current_customer = () =>{
-  //   let currentCheckbox = $('#custCurnt')
-    
-  //   if (currentCheckbox.checked == true){
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // };
-
-  // const good_standing = () => {
-  //   let standingCheckbox = $('#custStndng')
-  
-  //   if (standingCheckbox.checked == true){
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // };
-
-  // const insured = () => {
-  //   let insuredCheckbox = $('#custInsrd')
-    
-  //   if (insuredCheckbox.checked == true){
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // };
-  
   console.log(insured);
   console.log(first_name);
   
@@ -135,6 +90,8 @@ console.log(first_name)
 
 
 //all employees
+// NOT CURRENTLY IMPLEMENTED
+
 const getEmployee = async () => {
     const response = await fetch('/employees/', {
         method: 'GET'
@@ -147,6 +104,8 @@ const getEmployee = async () => {
       }
     }
 
+// POST for Logout. SHOULD redirect to login.html using the redirect logic found in
+// the various routes
 const logOut = async () => {
   const response = await fetch ('/logout/', {
     method: 'POST',
@@ -158,10 +117,12 @@ const logOut = async () => {
   }
 }
 
+// Simple function for revealing the Add Customers modal
 const showModal = () => {
   $("#addcustModal").modal("show");
 }
 
+// Conditional Event Listeners from prior to implemented JQuery
 if (viewCustButton) {
   viewCustButton.addEventListener("click", getCustomers);
 }
@@ -176,16 +137,3 @@ if (logoutButton) {
 
 $('#addcustBtn').on('click', addNewEmployeeHandler);
 $("#modalBtn").on("click", showModal);
-
-
-
-// document.addEventListener("click", (event) => {
-//   if (event.target.id.includes("u-")) {
-  //     console.log("found it", event.target.id);//event.target.id = u-2
-  //     const unitId = event.target.id.split("-")[1];//[u-, 2]
-//     //make fetch request to endpoint /storage/unitId/id
-//     const singleUnit = getUnitById(unitId)
-//     console.log(singleUnit)
-//   }
-//   // event.stopPropagation();
-// });

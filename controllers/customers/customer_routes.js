@@ -2,6 +2,8 @@ const router = require('express').Router();
 const { Customers, Employees } = require('../../models');
 const path = require('path');
 
+
+// 4 Redirects in case our customers do some squirrely things with the navbar or URL
 router.get('/customers.html', (req, res) => {
 
     if (req.session.loggedIn !== true){
@@ -37,6 +39,7 @@ router.get('/storage', (req, res) => {
     res.redirect("../storage")
 });
 
+// GET ALL CUSTOMERS, serves customers.handlebars
 router.get('/', async (req, res) => {
 
     if (req.session.loggedIn !== true){
@@ -79,6 +82,8 @@ router.get('/', async (req, res) => {
     }
 })
 
+// GET BY ID - Performs both a GET ALL and a GET BY ID under the hood, and serves both to
+// customersbyid.handlebars
 router.get('/:id', async (req, res) => {
 
     if (req.session.loggedIn !== true){

@@ -3,33 +3,7 @@ const idBox = document.getElementById("employee_id");
 const passBox = document.getElementById("password");
 console.log("I can see login.js");
 
-// const loginFormHandler = async (event) => {
-//     event.preventDefault();
-  
-//     const employee_id = document.querySelector('employee_id').value.trim();
-//     const password = document.querySelector('password').value.trim();
-  
-//     if (employee_id && password) {
-//       const response = await fetch('/customer', {
-//         method: 'POST',
-//         body: JSON.stringify({ employee_id, password }),
-//         headers: { 'Content-Type': 'application/json' },
-//       });
-  
-//       if (response.ok) {
-//         document.location.replace('/customer');
-//       } else {
-//         alert('Failed to log in.');
-//       }
-//     }
-//   };
-  
-//   document
-//     .querySelector('.container')
-//     .addEventListener('submit', loginFormHandler);
-  
-
-
+// Login script, only bound on login.html
 
 loginButton.addEventListener("click", async (e) => {
     e.preventDefault();

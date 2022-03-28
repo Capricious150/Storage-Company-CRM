@@ -27,6 +27,7 @@ router.get('/employee.html', (req, res) => {
   res.sendFile(path.resolve("public/html/employee.html"))
 });
 
+// Login Post, recycled from class activies and partially refactored for our application
 router.post('/login', async (req, res) => {
     console.info("POST to /login RECEIVED");
     console.info(req.body.password);
@@ -69,6 +70,7 @@ router.post('/login', async (req, res) => {
 
 })
 
+// Logout post. Destroys session.
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn === true){
     req.session.destroy(() => {

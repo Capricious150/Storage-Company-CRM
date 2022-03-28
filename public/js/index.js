@@ -154,7 +154,7 @@ const logOut = async () => {
   })
 
   if(response.ok){
-    getUnits();
+    document.location.replace("/");
   }
 }
 

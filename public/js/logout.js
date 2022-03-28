@@ -1,3 +1,6 @@
+// IF YOU'RE LOOKING AT THIS PAGE, IT IS NOT ACTUALLY IMPLEMENTED IN OUR CODE.
+// LOGOUT IS HANDLED IN PUBLIC/INDEX.JS IN THE FUNCTION CALLED 'logOut'
+
 const logout = async () => {
     const response = await fetch('/users/logout', {
       method: 'POST',

@@ -147,11 +147,17 @@ const getEmployee = async () => {
       }
     }
 
-const logOut = () => {
-  fetch ('/logout/', {
+const logOut = async () => {
+  const response = await fetch ('/logout/', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
   })
+
+  if (response.ok) {
+    document.location.replace('/');
+  } else {
+    alert('Logout Successful, Redirect Failed')
+  }
 }
 
 const showModal = () => {

@@ -1,18 +1,27 @@
 [
     {
         "id": "2",
-        "unit_type": "small",
+        "unit_type": "Small",
         "available": "true",
         "insured": "false",
         "can_transport": "true",
         "customer_id": "2"
     },
     {
-        "id": "10",
-        "unit_type": "large",
+        "id": "5",
+        "unit_type": "Large",
         "available": "false",
         "insured": "true",
         "insured_items": "eye patch, treasure chest, black hat, flintlock",
+        "can_transport": "true",
+        "customer_id": "1"
+    },
+    {
+        "id": "10",
+        "unit_type": "Medium",
+        "available": "false",
+        "insured": "true",
+        "insured_items": "A truly uncomfortable number of porcelain dolls. They all stare at the door",
         "can_transport": "true",
         "customer_id": "1"
     }
